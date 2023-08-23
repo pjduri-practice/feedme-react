@@ -4,6 +4,7 @@ import { Button } from 'reactstrap'
 
 // TODO install bootstrap
 // TODO create components
+// TODO set up data layer for development.
 const TesterButton = () => {
   const clickAlert = () => alert('Congratulations, you just clicked a button!  Click another one!')
   return <Button onClick={clickAlert}>No Added Styles</Button>
