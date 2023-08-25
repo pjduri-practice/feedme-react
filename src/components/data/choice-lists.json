@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "name": "Snacks",
+        "layout_id": 1,
+        "options": [
+            "popcorn",
+            "chips",
+            "mixed nuts"
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Out/Delivery",
+        "layout_id": 1,
+        "options": [
+            "Mickey D's",
+            "Milk and Moo",
+            "Slim Jim Greasyfish"
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Bring It",
+        "layout_id": 2,
+        "options": [
+            "leftover pasta",
+            "sammies and chips",
+            "Uncrustables"
+        ]
+    },
+    {
+        "id": 4,
+        "name": "Out/Delivery",
+        "layout_id": 2,
+        "options": [
+            "BreadAira",
+            "That Quesadilla Place",
+            "Sushi Ai"
+        ]
+    }
+]
