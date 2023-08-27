@@ -2,7 +2,7 @@
     {
         "id": 1,
         "name": "Snacks",
-        "layout_id": 1,
+        "layout_id": 5,
         "options": [
             "popcorn",
             "chips",
@@ -12,7 +12,7 @@
     {
         "id": 2,
         "name": "Out/Delivery",
-        "layout_id": 1,
+        "layout_id": 5,
         "options": [
             "Mickey D's",
             "Milk and Moo",
@@ -22,7 +22,7 @@
     {
         "id": 3,
         "name": "Bring It",
-        "layout_id": 2,
+        "layout_id": 6,
         "options": [
             "leftover pasta",
             "sammies and chips",
@@ -32,7 +32,7 @@
     {
         "id": 4,
         "name": "Out/Delivery",
-        "layout_id": 2,
+        "layout_id": 6,
         "options": [
             "BreadAira",
             "That Quesadilla Place",
