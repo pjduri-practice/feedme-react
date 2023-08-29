@@ -33,7 +33,7 @@ function App() {
       </header>
       <main>
         <div>
-          <FeedMeNow id='3' />
+          <FeedMeNow id='1' />
         </div>
       </main>
     </div>
