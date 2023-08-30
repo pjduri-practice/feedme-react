@@ -1,11 +1,17 @@
+import { useState } from "react"
 import { Option } from "./Option"
 import {
     Card, CardImg, CardText, CardBody,
-    CardTitle, CardSubtitle, Button
+    CardTitle, CardSubtitle, Button, ListGroup, ListGroupItem
 } from "reactstrap"
 
+export function ChoiceList({ 
+    choiceList, 
+    options, 
+    getRandomOption, 
+    randomOption, 
+    clearRandomOption }) {
 
-export function ChoiceList({ choiceList, options }) {
     return (
         <>
             <Card
@@ -21,12 +27,20 @@ export function ChoiceList({ choiceList, options }) {
                         {choiceList.name}
                     </CardTitle>
                     <CardText>
-                        {options.map((o) => <Option key={o.id} option={o.name} />)}
+                        {options.map((o) =>
+                            <ListGroup>
+                                <ListGroupItem className="bg-dark text-secondary">
+                                    <Option key={o.id} option={o.name} />
+                                </ListGroupItem>
+                            </ListGroup>
+                        )}
                     </CardText>
-                    <Button>
+                    <Button onClick={getRandomOption} >
                         Generate
                     </Button>
+                    {randomOption && <Button onClick={clearRandomOption} >Clear</Button>}
                 </CardBody>
+                {randomOption && <CardTitle>{randomOption.name}</CardTitle>}
             </Card>
         </>
     )
