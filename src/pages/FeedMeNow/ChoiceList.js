@@ -18,9 +18,9 @@ export function ChoiceList({
                 body
                 color="secondary"
                 inverse
-                style={{
-                    width: '18rem'
-                }}
+                // style={{
+                //     width: '18rem'
+                // }}
             >
                 <CardBody>
                     <CardTitle tag="h5">

@@ -1,8 +1,6 @@
-// import logo from './logo.svg'
 import './App.css'
-import { Button } from 'reactstrap'
 import FeedMeNow from './pages/FeedMeNow/FeedMeNow'
-import { useState } from 'react'
+import NavBar from './layout/NavBar'
 
 // TODO ChoiceListGroup 
 // TODO Navigation
@@ -13,12 +11,23 @@ function App() {
     <div className="App">
       <header>
         <div className='row'>
-          {/* <Navigation /> */}
+          <NavBar />
         </div>
       </header>
-      <main>
-        <div>
-          <FeedMeNow id='1' />
+      <main style={{ marginTop: 85 }}>
+        <div className='row'>
+          <div className='col col-3' >
+            <FeedMeNow id='1' />
+          </div>
+          <div className='col col-3' >
+            <FeedMeNow id='2' />
+          </div>
+          <div className='col col-3' >
+            <FeedMeNow id='3' />
+          </div>
+          <div className='col col-3' >
+            <FeedMeNow id='4' />
+          </div>
         </div>
       </main>
     </div>
