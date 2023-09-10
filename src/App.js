@@ -1,7 +1,7 @@
 // import logo from './logo.svg'
 import './App.css'
 import { Button } from 'reactstrap'
-import FeedMeNow from './components/FeedMeNow/FeedMeNow'
+import FeedMeNow from './pages/FeedMeNow/FeedMeNow'
 import { useState } from 'react'
 
 // TODO ChoiceListGroup 

@@ -1,7 +1,7 @@
 import { useState } from "react"
-import allOptions from '../data/options.json'
+import allOptions from '../../components/data/options.json'
 import { ChoiceList } from "./ChoiceList"
-import choiceLists from '../data/choice-lists.json'
+import choiceLists from '../../components/data/choice-lists.json'
 
 export default function FeedMeNow({ id }) {
 
