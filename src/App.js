@@ -1,6 +1,7 @@
 import './App.css'
 import { useState } from 'react'
 import FeedMeNow from './pages/FeedMeNow/FeedMeNow'
+import FeedMeLater from './pages/FeedMeLater/FeedMeLater'
 import NavBar from './layout/NavBar'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import choiceListGroups from './components/data/list-layouts.json'
@@ -20,6 +21,7 @@ function App() {
               element={
               <FeedMeNow
                 id={layoutId} setLayoutId={setLayoutId}/>} />
+            <Route path='/feedmelater' element={<FeedMeLater />} />
           </Routes>
         </BrowserRouter>
       </header>

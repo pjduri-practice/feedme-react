@@ -1,4 +1,6 @@
 import choiceListGroups from '../components/data/list-layouts.json'
+import logo from '../assets/FeedMeLogo6.png'
+
 import {
     Navbar,
     NavbarBrand,
@@ -15,8 +17,11 @@ import {
 export default function NavBar({ setLayoutId, ...args }) {
     return (
         <>
-            <Navbar {...args} className='bg-dark opacity-70 fixed-top navbar-expand'>
-                <NavbarBrand href="/" className='text-secondary'>FeedMe</NavbarBrand>
+            <Navbar {...args} className='bg-dark opacity-60 fixed-top navbar-expand'>
+                <NavbarBrand href="/" className='text-secondary'>
+                    {/* FeedMe */}
+                    <img src={logo} alt='logo' style={{height: 40}}/>
+                </NavbarBrand>
                 <Nav className="me-auto" navbar>
                     <NavLink href='/feedmenow' style={{ marginRight: -25 }} className='text-secondary'>
                         FeedMe Now
