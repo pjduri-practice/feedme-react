@@ -19,7 +19,7 @@ function App() {
             <Route path='/feedmenow'
               element={
               <FeedMeNow
-                id={layoutId} />} />
+                id={layoutId} setLayoutId={setLayoutId}/>} />
           </Routes>
         </BrowserRouter>
       </header>

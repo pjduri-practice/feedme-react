@@ -1,4 +1,3 @@
-import React, { useState } from 'react'
 import choiceListGroups from '../components/data/list-layouts.json'
 import {
     Navbar,
