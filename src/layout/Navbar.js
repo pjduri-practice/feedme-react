@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
+import choiceListGroups from '../components/data/list-layouts.json'
 import {
-    Collapse,
     Navbar,
-    NavbarToggler,
     NavbarBrand,
     Nav,
     NavItem,
@@ -11,44 +10,39 @@ import {
     DropdownToggle,
     DropdownMenu,
     DropdownItem,
-    NavbarText,
+    NavbarText
 } from 'reactstrap'
 
-export default function NavBar(args) {
-    const [isOpen, setIsOpen] = useState(false)
-
-    const toggle = () => setIsOpen(!isOpen)
-
+export default function NavBar({ setLayoutId, ...args }) {
     return (
-        <div>
-            <Navbar {...args} className='bg-dark opacity-70 fixed-top'>
+        <>
+            <Navbar {...args} className='bg-dark opacity-70 fixed-top navbar-expand'>
                 <NavbarBrand href="/" className='text-secondary'>FeedMe</NavbarBrand>
-                <NavbarToggler onClick={toggle} />
-                <Collapse isOpen={isOpen} navbar>
-                    <Nav className="me-auto" navbar>
-                        <NavItem>
-                            <NavLink href="/components/">Components</NavLink>
-                        </NavItem>
-                        <NavItem>
-                            <NavLink href="https://github.com/reactstrap/reactstrap">
-                                GitHub
-                            </NavLink>
-                        </NavItem>
-                        <UncontrolledDropdown nav inNavbar>
-                            <DropdownToggle nav caret>
-                                Options
-                            </DropdownToggle>
-                            <DropdownMenu right>
-                                <DropdownItem>Option 1</DropdownItem>
-                                <DropdownItem>Option 2</DropdownItem>
-                                <DropdownItem divider />
-                                <DropdownItem>Reset</DropdownItem>
-                            </DropdownMenu>
-                        </UncontrolledDropdown>
-                    </Nav>
-                    <NavbarText>Simple Text</NavbarText>
-                </Collapse>
+                <Nav className="me-auto" navbar>
+                    <NavLink href='/feedmenow' style={{ marginRight: -25 }} className='text-secondary'>
+                        FeedMe Now
+                    </NavLink>
+                    <UncontrolledDropdown nav inNavbar>
+                        <DropdownToggle nav caret className='text-secondary'>
+                        </DropdownToggle>
+                        <DropdownMenu right className='bg-secondary'>
+                            {choiceListGroups.map(g =>
+                                <DropdownItem
+                                    className='text-dark bg-secondary'
+                                    onClick={() => setLayoutId(g.id)}>
+                                    {g.name}
+                                </DropdownItem>)}
+                        </DropdownMenu>
+                    </UncontrolledDropdown>
+                    <NavItem>
+                        <NavLink href="/feedmelater" className='text-secondary'>
+                            FeedMe Later
+                        </NavLink>
+                    </NavItem>
+
+                </Nav>
+                <NavbarText className='text-secondary'>Welcome!</NavbarText>
             </Navbar>
-        </div>
+        </>
     )
 }

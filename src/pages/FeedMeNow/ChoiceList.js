@@ -3,7 +3,7 @@ import { Option } from "./Option"
 import allOptions from '../../components/data/options.json'
 import {
     Card, CardImg, CardText, CardBody,
-    CardTitle, CardSubtitle, Button, ListGroup, ListGroupItem
+    CardTitle, CardSubtitle, Button, List
 } from "reactstrap"
 
 export function ChoiceList({ choiceList }) {
@@ -16,33 +16,34 @@ export function ChoiceList({ choiceList }) {
 
     return (
         <div className='col col-3' >
-            <Card
-                body
-                color="secondary"
-                inverse
-                // style={{
-                //     width: '18rem'
-                // }}
-            >
+            <Card color="secondary">
                 <CardBody>
                     <CardTitle tag="h5">
                         {choiceList.name}
                     </CardTitle>
                     <CardText>
-                        {options.map((o) =>
-                            <ListGroup>
-                                <ListGroupItem className="bg-dark text-secondary">
+                        <List type='unstyled'>
+                            {options.map((o) =>
+
+                                <li style={{ height: 50 }} className="bg-dark text-secondary">
                                     <Option key={o.id} option={o.name} />
-                                </ListGroupItem>
-                            </ListGroup>
-                        )}
+                                </li>
+
+                            )}
+                        </List>
                     </CardText>
-                    <Button onClick={getRandomOption} >
+                    <Button onClick={getRandomOption} color='black'>
                         Generate
                     </Button>
-                    {randomOption && <Button onClick={clearRandomOption} >Clear</Button>}
+                    {randomOption && <Button onClick={clearRandomOption} color='black'>Clear</Button>}
                 </CardBody>
-                {randomOption && <CardTitle>{randomOption.name}</CardTitle>}
+                {randomOption &&
+                    <CardTitle color='black'>
+                        <div>
+                            <h5>{randomOption.name.toUpperCase()}</h5>
+                            <p>FOR THE WIN!</p>
+                        </div>
+                    </CardTitle>}
             </Card>
         </div>
     )
