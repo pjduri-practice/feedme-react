@@ -1,9 +1,7 @@
 import './App.css'
 import FeedMeNow from './pages/FeedMeNow/FeedMeNow'
 import NavBar from './layout/NavBar'
-
-// TODO ChoiceListGroup 
-// TODO Navigation
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 function App() {
 
@@ -13,23 +11,12 @@ function App() {
         <div className='row'>
           <NavBar />
         </div>
+        <BrowserRouter>
+          <Routes>
+            <Route path='/feedmenow' element={<FeedMeNow id={5}/>}/>
+          </Routes>
+        </BrowserRouter>
       </header>
-      <main style={{ marginTop: 85 }}>
-        <div className='row'>
-          <div className='col col-3' >
-            <FeedMeNow id='1' />
-          </div>
-          <div className='col col-3' >
-            <FeedMeNow id='2' />
-          </div>
-          <div className='col col-3' >
-            <FeedMeNow id='3' />
-          </div>
-          <div className='col col-3' >
-            <FeedMeNow id='4' />
-          </div>
-        </div>
-      </main>
     </div>
   )
 }

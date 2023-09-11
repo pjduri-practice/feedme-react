@@ -1,25 +1,12 @@
-import { useState } from "react"
-import allOptions from '../../components/data/options.json'
-import { ChoiceList } from "./ChoiceList"
-import choiceLists from '../../components/data/choice-lists.json'
+import { ChoiceList } from './ChoiceList'
+import allChoiceLists from '../../components/data/choice-lists.json'
 
 export default function FeedMeNow({ id }) {
-
-    const options = allOptions.filter((o) => o.choiceListId == parseInt(id))
-    const choiceList = choiceLists.find(c => c.id === parseInt(id))
-    const [randomOption, setRandomOption] = useState(null)
-    const getRandomIndex = () => Math.floor(Math.random() * options.length)
-    const getRandomOption = () => { setRandomOption(options[getRandomIndex()]) }
-    const clearRandomOption = () => { setRandomOption(null) }
-
+    const choiceLists = allChoiceLists.filter(c => parseInt(c.layout_id) === parseInt(id))
+    console.log(choiceLists)
     return (
-        <>
-            <ChoiceList key={choiceList.id}
-                choiceList={choiceList}
-                options={options}
-                getRandomOption={getRandomOption}
-                randomOption={randomOption}
-                clearRandomOption={clearRandomOption} />
-        </>
+        <div className='row' style={{marginTop: 85}}>
+            {choiceLists.map(c => <ChoiceList key={c.id} choiceList={c}/>)}
+        </div>
     )
 }
