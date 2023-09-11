@@ -17,7 +17,7 @@ export function Banner({ setLayoutId }) {
                     <DropdownToggle nav caret className='col col-4 offset-4'>
                         Select Layout
                     </DropdownToggle>
-                    <DropdownMenu positionFixed={true} className='bg-secondary col, col-2 offset-8'>
+                    <DropdownMenu positionFixed={true} className='bg-secondary'>
                         {choiceListGroups.map(g =>
                             <DropdownItem
                                 className='text-dark bg-secondary'
