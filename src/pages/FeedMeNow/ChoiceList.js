@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react"
 import { Option } from './Option'
-import { AddForm } from './AddForm'
+import { AddForm } from './AddOption'
 import allOptions from '../../components/data/options.json'
 import {
     Card, CardText, CardBody,
@@ -19,7 +19,7 @@ export function ChoiceList({ choiceList }) {
 
     return (
         <div className='col col-3' >
-            <Card color="secondary">
+            <Card color="secondary" className="shadow-lg">
                 <CardBody>
                     <CardTitle tag="h5">
                         {choiceList.name}
@@ -27,7 +27,10 @@ export function ChoiceList({ choiceList }) {
                     <CardText>
                         <List type='unstyled'>
                             {options.map((o) =>
-                                <Option key={o.id} option={o.name} />
+                                <Option key={o.id} 
+                                option={o} 
+                                setOptions={setOptions}
+                                options={options} />
                             )}
                         </List>
                         <AddForm choiceList={choiceList}

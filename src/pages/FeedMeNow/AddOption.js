@@ -1,14 +1,16 @@
 import { Button, Form, Input, Dropdown, DropdownToggle, DropdownMenu } from 'reactstrap'
 import { useState } from 'react'
 
-export function AddForm({ choiceList, setAddingOption, addingOption, options, setOptions }) {
+export function AddForm({ 
+    choiceList, 
+    setAddingOption, 
+    addingOption, 
+    options, 
+    setOptions }) {
+
     const [addInput, setAddInput] = useState('')
-
     const handleInputChange = (e) => {setAddInput(e.target.value)}
-
-    const toggleAddOptionForm = () => {
-        setAddingOption(!addingOption)
-    }
+    const toggleAddOptionForm = () => { setAddingOption(!addingOption) }
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -36,7 +38,6 @@ export function AddForm({ choiceList, setAddingOption, addingOption, options, se
                     <small>Add</small>
                 </DropdownToggle>
                 <DropdownMenu positionFixed={true} className='bg-secondary'>
-                    {/* <Form onSubmit={onSubmit}> */}
                     <Form onSubmit={handleSubmit}>
                         <Input
                             style={{ height: 30, width: 210, margin: 10 }}
@@ -49,7 +50,6 @@ export function AddForm({ choiceList, setAddingOption, addingOption, options, se
                     </Form>
                 </DropdownMenu>
             </Dropdown>
-
         </>
     )
 }

@@ -6,8 +6,8 @@ export default function FeedMeNow({ id, setLayoutId }) {
     const choiceLists = allChoiceLists.filter(c => parseInt(c.layout_id) === parseInt(id))
     return (
         <>
-            <Banner setLayoutId={setLayoutId} />
-            <div className='row container-fluid' style={{ marginTop: 85 }}>
+            <Banner setLayoutId={setLayoutId} style={{ marginTop: 90 }} />
+            <div className='row container-fluid' style={{ marginTop: 30 }}>
                 {choiceLists.map(c => <ChoiceList key={c.id} choiceList={c} />)}
             </div>
         </>
