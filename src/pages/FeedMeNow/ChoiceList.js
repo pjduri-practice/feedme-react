@@ -24,16 +24,22 @@ export function ChoiceList({ choiceList }) {
                 <CardBody>
                     <CardTitle tag="h5">
                         {choiceList.name}
+                        {unsavedChanges &&
+                            <Button
+                            className='text-black btn btn-sm bg-transparent' 
+                            onClick={() => setUnsavedChanges(false)}>
+                                Save Changes
+                            </Button>}
                     </CardTitle>
                     <CardText className='bg-dark bg-opacity-75 rounded'>
-                        <List type='unstyled' 
-                        className='overflow-auto' 
-                        style={{ height: 130 }} >
+                        <List type='unstyled'
+                            className='overflow-auto'
+                            style={{ height: 130 }} >
                             {options.map((o) =>
-                                <Option key={o.id} 
-                                option={o} 
-                                setOptions={setOptions}
-                                options={options} />
+                                <Option key={o.id}
+                                    option={o}
+                                    setOptions={setOptions}
+                                    options={options} />
                             )}
                         </List>
                         <AddOption choiceList={choiceList}
@@ -44,8 +50,8 @@ export function ChoiceList({ choiceList }) {
                             setUnsavedChanges={setUnsavedChanges}
                         />
                     </CardText>
-                    <Button onClick={getRandomOption} 
-                    className='fs-6 text-black bg-dark bg-opacity-75'>
+                    <Button onClick={getRandomOption}
+                        className='fs-6 text-black bg-dark bg-opacity-75'>
                         FeedMe Something!
                     </Button>
                     {randomOption && <Button onClick={clearRandomOption} color='black'>Clear</Button>}

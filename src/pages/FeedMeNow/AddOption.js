@@ -11,7 +11,6 @@ export function AddOption({
     const [addInput, setAddInput] = useState('')
     const handleInputChange = (e) => { 
         setAddInput(e.target.value)
-        setUnsavedChanges(true)
     }
     // const toggleAddOptionForm = () => { setAddingOption(!addingOption) }
 
@@ -23,6 +22,7 @@ export function AddOption({
         setOptions(updatedOptions)
         setAddInput('')
         setAddingOption(false)
+        setUnsavedChanges(true)
     }
 
     const [nextId, setNextId] = useState(19)
