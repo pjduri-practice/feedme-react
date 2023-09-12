@@ -13,23 +13,25 @@ import {
     DropdownItem,
     NavbarText
 } from 'reactstrap'
+import { Banner } from '../pages/FeedMeNow/Banner'
 
 export default function NavBar({ setLayoutId, ...args }) {
     return (
         <>
             <Navbar {...args}
-                className='bg-dark fixed-top navbar-expand shadow-lg'
-                style={{ opacity: 0.85 }}>
-                <NavbarBrand href="/" className='text-secondary'>
+                className='bg-dark fixed-top navbar-expand shadow-lg bg-opacity-50'
+            >
+                <NavbarBrand href='/'>
                     {/* FeedMe */}
-                    <img src={logo} alt='logo' style={{ height: 40 }} />
+                    <img src={logo} alt='logo' style={{ height: 80, marginTop: 0, marginBottom: 0, padding: 0 }} />
                 </NavbarBrand>
                 <Nav className="me-auto" navbar>
-                    <NavLink href='/feedmenow' style={{ marginRight: -25 }} className='text-secondary'>
+                    <NavLink href='/feedmenow'
+                        style={{ marginRight: -25, color: 'black' }}>
                         FeedMe Now
                     </NavLink>
                     <UncontrolledDropdown nav inNavbar>
-                        <DropdownToggle nav caret className='text-secondary'>
+                        <DropdownToggle nav caret style={{color: 'black'}}>
                         </DropdownToggle>
                         <DropdownMenu className='bg-secondary'>
                             {choiceListGroups.map(g =>
@@ -42,14 +44,15 @@ export default function NavBar({ setLayoutId, ...args }) {
                         </DropdownMenu>
                     </UncontrolledDropdown>
                     <NavItem>
-                        <NavLink href="/feedmelater" className='text-secondary'>
+                        <NavLink href="/feedmelater" style={{color: 'black'}}>
                             FeedMe Later
                         </NavLink>
                     </NavItem>
 
                 </Nav>
-                <NavbarText className='text-secondary'>Welcome!</NavbarText>
+                <NavbarText style={{color: 'black'}}>Welcome!</NavbarText>
             </Navbar>
+            <Banner setLayoutId={setLayoutId}/>
         </>
     )
 }

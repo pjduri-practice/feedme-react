@@ -13,19 +13,22 @@ export function ChoiceList({ choiceList }) {
     const [options, setOptions] =
         useState(allOptions.filter(o => o.choiceListId == choiceList.id))
     const [addingOption, setAddingOption] = useState(false)
+    const [unsavedChanges, setUnsavedChanges] = useState(false)
     const getRandomIndex = () => Math.floor(Math.random() * options.length)
     const getRandomOption = () => { setRandomOption(options[getRandomIndex()]) }
     const clearRandomOption = () => { setRandomOption(null) }
 
     return (
         <div className='col col-3' >
-            <Card color="secondary" className="shadow-lg">
+            <Card color="secondary" className='shadow-lg bg-opacity-75 p-1'>
                 <CardBody>
                     <CardTitle tag="h5">
                         {choiceList.name}
                     </CardTitle>
-                    <CardText className='bg-dark'>
-                        <List type='unstyled'>
+                    <CardText className='bg-dark bg-opacity-75 rounded'>
+                        <List type='unstyled' 
+                        className='overflow-auto' 
+                        style={{ height: 130 }} >
                             {options.map((o) =>
                                 <Option key={o.id} 
                                 option={o} 
@@ -38,10 +41,12 @@ export function ChoiceList({ choiceList }) {
                             addingOption={addingOption}
                             options={options}
                             setOptions={setOptions}
+                            setUnsavedChanges={setUnsavedChanges}
                         />
                     </CardText>
-                    <Button onClick={getRandomOption} color='black'>
-                        Generate
+                    <Button onClick={getRandomOption} 
+                    className='fs-6 text-black bg-dark bg-opacity-75'>
+                        FeedMe Something!
                     </Button>
                     {randomOption && <Button onClick={clearRandomOption} color='black'>Clear</Button>}
                 </CardBody>

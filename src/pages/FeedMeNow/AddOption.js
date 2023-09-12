@@ -4,12 +4,15 @@ import { useState } from 'react'
 export function AddOption({
     choiceList,
     setAddingOption,
-    addingOption,
     options,
-    setOptions }) {
+    setOptions, 
+    setUnsavedChanges }) {
 
     const [addInput, setAddInput] = useState('')
-    const handleInputChange = (e) => { setAddInput(e.target.value) }
+    const handleInputChange = (e) => { 
+        setAddInput(e.target.value)
+        setUnsavedChanges(true)
+    }
     // const toggleAddOptionForm = () => { setAddingOption(!addingOption) }
 
     const handleSubmit = (e) => {

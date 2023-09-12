@@ -21,23 +21,24 @@ export function Option({
     }
 
     return (
-        <>
-            {!editingOption ? 
-            <li style={{ height: 50 }} 
-            className="bg-dark text-secondary"
-            onClick={() => setEditingOption(true)}>
-                {name}
-                <span className='btn btn-outline-secondary rounded' onClick={deleteOption} style={{ fontSize: 9, padding: 3, margin: 2 }}>
-                    DEL
-                </span>
-            </li> :
+        <div style={{ width: 180, height: 40 }}>
+            {!editingOption ?
+                <li
+                    className='text-black text-start text-nowrap'
+                    onClick={() => setEditingOption(true)}><p>
+                    <span className='m-1 btn btn-outline-secondary rounded' onClick={deleteOption} style={{ fontSize: 9, padding: 3, margin: 2 }}>
+                        DEL
+                    </span>
+                    {name}
+                    </p>
+                </li> :
                 <li className="bg-dark text-secondary">
                     <form onSubmit={handleSubmit}>
                         <input className='container-fluid bg-secondary'
-                        value={name}
-                        onChange={(e) => {setName(e.target.value)}}/>
+                            value={name}
+                            onChange={(e) => { setName(e.target.value) }} />
                     </form>
                 </li>}
-        </>
+        </div>
     )
 }

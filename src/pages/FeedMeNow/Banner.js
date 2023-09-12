@@ -4,28 +4,33 @@ import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem }
     from 'reactstrap'
 
 export function Banner({ setLayoutId }) {
-    const [ dropdownOpen, setDropdownOpen ] = useState(false)
+    const [dropdownOpen, setDropdownOpen] = useState(false)
     const toggle = () => setDropdownOpen(!dropdownOpen)
 
     return (
-        <div style={{ marginTop: 85, marginBottom: 5, background: 'transparent' }} className='row'>
+        <div
+            style={{
+                paddingTop: 120,
+                color: 'black',
+                background: 'rgba(11, 79, 79, 0.6)'
+            }}>
             <h1>FeedMe Now</h1>
-                <Dropdown className='me-2' 
-                isOpen={dropdownOpen} 
+            <Dropdown className='me-2'
+                isOpen={dropdownOpen}
                 toggle={toggle}>
-                    <DropdownToggle nav caret className='col col-4 offset-4'>
-                        Select Layout
-                    </DropdownToggle>
-                    <DropdownMenu  className='bg-secondary'>
-                        {choiceListGroups.map(g =>
-                            <DropdownItem
-                                key={g.id}
-                                className='text-dark bg-secondary'
-                                onClick={() => setLayoutId(g.id)}>
-                                {g.name}
-                            </DropdownItem>)}
-                    </DropdownMenu>
-                </Dropdown>
+                <DropdownToggle nav caret className='col col-4 offset-4 bg-secondary bg-opacity-75 mb-1'>
+                    Select Layout
+                </DropdownToggle>
+                <DropdownMenu className='bg-secondary'>
+                    {choiceListGroups.map(g =>
+                        <DropdownItem
+                            key={g.id}
+                            className='text-dark bg-secondary'
+                            onClick={() => setLayoutId(g.id)}>
+                            {g.name}
+                        </DropdownItem>)}
+                </DropdownMenu>
+            </Dropdown>
         </div>
     )
 }
