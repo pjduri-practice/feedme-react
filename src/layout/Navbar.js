@@ -17,10 +17,12 @@ import {
 export default function NavBar({ setLayoutId, ...args }) {
     return (
         <>
-            <Navbar {...args} className='bg-dark opacity-60 fixed-top navbar-expand'>
+            <Navbar {...args}
+                className='bg-dark fixed-top navbar-expand shadow'
+                style={{ opacity: 0.85 }}>
                 <NavbarBrand href="/" className='text-secondary'>
                     {/* FeedMe */}
-                    <img src={logo} alt='logo' style={{height: 40}}/>
+                    <img src={logo} alt='logo' style={{ height: 40 }} />
                 </NavbarBrand>
                 <Nav className="me-auto" navbar>
                     <NavLink href='/feedmenow' style={{ marginRight: -25 }} className='text-secondary'>
@@ -29,9 +31,10 @@ export default function NavBar({ setLayoutId, ...args }) {
                     <UncontrolledDropdown nav inNavbar>
                         <DropdownToggle nav caret className='text-secondary'>
                         </DropdownToggle>
-                        <DropdownMenu right className='bg-secondary'>
+                        <DropdownMenu className='bg-secondary'>
                             {choiceListGroups.map(g =>
                                 <DropdownItem
+                                    key={g.id}
                                     className='text-dark bg-secondary'
                                     onClick={() => setLayoutId(g.id)}>
                                     {g.name}

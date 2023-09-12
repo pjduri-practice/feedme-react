@@ -1,3 +1,3 @@
 export function Option({ option }) {
-    return <p>{option}</p>
+    return <li style={{ height: 50 }} className="bg-dark text-secondary">{option}</li>
 }

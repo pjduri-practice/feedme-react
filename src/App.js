@@ -11,7 +11,7 @@ function App() {
 
   return (
     <div className="App">
-      <header>
+      <header className='container-fluid'>
         <div className='row'>
           <NavBar setLayoutId={setLayoutId}/>
         </div>

@@ -1,15 +1,18 @@
-import { useState } from "react"
-import { Option } from "./Option"
+import { useState, useRef, useEffect } from "react"
+import { Option } from './Option'
+import { AddForm } from './AddForm'
 import allOptions from '../../components/data/options.json'
 import {
-    Card, CardImg, CardText, CardBody,
-    CardTitle, CardSubtitle, Button, List
-} from "reactstrap"
+    Card, CardText, CardBody,
+    CardTitle, Button, List, Form, Input, Dropdown, DropdownToggle, DropdownMenu
+} from 'reactstrap'
 
 export function ChoiceList({ choiceList }) {
 
     const [randomOption, setRandomOption] = useState(null)
-    const options = allOptions.filter(o => o.choiceListId == choiceList.id)
+    const [options, setOptions] =
+        useState(allOptions.filter(o => o.choiceListId == choiceList.id))
+    const [addingOption, setAddingOption] = useState(false)
     const getRandomIndex = () => Math.floor(Math.random() * options.length)
     const getRandomOption = () => { setRandomOption(options[getRandomIndex()]) }
     const clearRandomOption = () => { setRandomOption(null) }
@@ -24,13 +27,15 @@ export function ChoiceList({ choiceList }) {
                     <CardText>
                         <List type='unstyled'>
                             {options.map((o) =>
-
-                                <li style={{ height: 50 }} className="bg-dark text-secondary">
-                                    <Option key={o.id} option={o.name} />
-                                </li>
-
+                                <Option key={o.id} option={o.name} />
                             )}
                         </List>
+                        <AddForm choiceList={choiceList}
+                            setAddingOption={setAddingOption}
+                            addingOption={addingOption}
+                            options={options}
+                            setOptions={setOptions}
+                        />
                     </CardText>
                     <Button onClick={getRandomOption} color='black'>
                         Generate
