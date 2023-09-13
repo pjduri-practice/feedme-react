@@ -1,4 +1,4 @@
-import { Button, Form, Input, Dropdown, DropdownToggle, DropdownMenu } from 'reactstrap'
+import { Form, Input } from 'reactstrap'
 import { useState } from 'react'
 
 export function AddOption({
@@ -36,7 +36,6 @@ export function AddOption({
     return (
         <>
             <Form onSubmit={handleSubmit} className='container-fluid'>
-                {/* <div className='col col-10'> */}
                     <Input className='bg-secondary border-secondary'
                         style={{ height: 30 }}
                         label='Add Option'
@@ -51,33 +50,7 @@ export function AddOption({
                         style={{fontSize: 18}}>
                         Add
                     </span>
-                {/* </div> */}
-                {/* <div className='col col-2'>
-                    <Button className='text-dark'
-                        style={{ fontSize: 9, marginLeft: -10, marginBottom: 5 }}>
-                        Add
-                    </Button>
-                </div> */}
             </Form>
-            {/* <Dropdown className='me-2'
-                isOpen={addingOption}
-                toggle={toggleAddOptionForm}>
-                <DropdownToggle nav caret>
-                    <small>Add</small>
-                </DropdownToggle>
-                <DropdownMenu positionFixed={true} className='bg-secondary'>
-                    <Form onSubmit={handleSubmit}>
-                        <Input
-                            style={{ height: 30, width: 210, margin: 10 }}
-                            label='Add Option'
-                            name='newOption'
-                            type='text'
-                            onChange={handleInputChange}                        
-                        />
-                        <Button className='text-dark'><small>Submit</small></Button>
-                    </Form>
-                </DropdownMenu>
-            </Dropdown> */}
         </>
     )
 }

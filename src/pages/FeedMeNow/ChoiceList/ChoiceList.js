@@ -1,13 +1,10 @@
-import { useState, useRef, useEffect } from "react"
+import { useState, useEffect } from "react"
 import { Option } from './Option'
-import { AddForm, AddOption } from './AddOption'
-import allOptions from '../../components/data/options.json'
-import {
-    Card, CardText, CardBody,
-    CardTitle, Button, List, Form, Input, Dropdown, DropdownToggle, DropdownMenu
-} from 'reactstrap'
+import { AddOption } from './AddOption'
+import allOptions from '../../../components/data/options.json'
+import { Card, CardText, CardBody, CardTitle, Button, List } from 'reactstrap'
 
-export function ChoiceList({ choiceList }) {
+export default function ChoiceList({ choiceList }) {
 
     const [randomOption, setRandomOption] = useState(null)
     const [options, setOptions] =
@@ -67,13 +64,3 @@ export function ChoiceList({ choiceList }) {
         </div>
     )
 }
-
-
-
-
-{/* <CardSubtitle
-className="mb-2 text-muted"
-tag="h6"
->
-Card subtitle
-</CardSubtitle> */}
