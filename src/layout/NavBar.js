@@ -19,7 +19,7 @@ export default function NavBar({ setLayoutId, ...args }) {
     return (
         <>
             <Navbar {...args}
-                className='bg-dark fixed-top navbar-expand shadow-lg bg-opacity-50'
+                className='bg-dark fixed-top navbar-expand shadow-lg bg-opacity-75'
             >
                 <NavbarBrand href='/'>
                     {/* FeedMe */}
