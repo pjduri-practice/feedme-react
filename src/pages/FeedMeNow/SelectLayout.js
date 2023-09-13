@@ -2,10 +2,16 @@ import React from 'react'
 import { useState } from 'react'
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem }
     from 'reactstrap'
+// import allChoiceLists from '../../components/data/choice-lists.json'
 
-export function SelectLayout({ choiceListGroups, setLayoutId }) {
+export function SelectLayout({ choiceListGroups, setLayoutId, setChoiceLists }) {
     const [dropdownOpen, setDropdownOpen] = useState(false)
     const toggle = () => setDropdownOpen(!dropdownOpen)
+
+    const handleSelectLayout = (id) => { 
+        // setChoiceLists(allChoiceLists.filter(c => parseInt(c.id) === parseInt(id)))
+        setLayoutId(id)
+    }
 
     return (
         <Dropdown className='p-2 m-2'
@@ -19,7 +25,7 @@ export function SelectLayout({ choiceListGroups, setLayoutId }) {
                     <DropdownItem
                         key={g.id}
                         className='text-dark bg-secondary'
-                        onClick={() => setLayoutId(g.id)}>
+                        onClick={() => handleSelectLayout(g.id)}>
                         {g.name}
                     </DropdownItem>)}
             </DropdownMenu>

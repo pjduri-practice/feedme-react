@@ -13,9 +13,8 @@ import {
     DropdownItem,
     NavbarText
 } from 'reactstrap'
-// import { Banner } from '../pages/FeedMeNow/Banner'
 
-export default function NavBar({ setLayoutId, ...args }) {
+export default function NavBar({...args }) {
     return (
         <>
             <Navbar {...args}
@@ -27,10 +26,10 @@ export default function NavBar({ setLayoutId, ...args }) {
                 </NavbarBrand>
                 <Nav className="me-auto" navbar>
                     <NavLink href='/feedmenow'
-                        style={{ marginRight: -25, color: 'black' }}>
+                        style={{ color: 'black' }}>
                         FeedMe Now
                     </NavLink>
-                    <UncontrolledDropdown nav inNavbar>
+                    {/* <UncontrolledDropdown nav inNavbar>
                         <DropdownToggle nav caret style={{color: 'black'}}>
                         </DropdownToggle>
                         <DropdownMenu className='bg-secondary'>
@@ -42,7 +41,7 @@ export default function NavBar({ setLayoutId, ...args }) {
                                     {g.name}
                                 </DropdownItem>)}
                         </DropdownMenu>
-                    </UncontrolledDropdown>
+                    </UncontrolledDropdown> */}
                     <NavItem>
                         <NavLink href="/feedmelater" style={{color: 'black'}}>
                             FeedMe Later
