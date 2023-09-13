@@ -17,9 +17,9 @@ export default function ChoiceList({ choiceList }) {
 
     return (
         <div className='col col-3' >
-            <Card color="secondary" className='shadow-lg bg-opacity-75 p-1'>
+            <Card color='secondary' className='shadow-lg bg-opacity-75 p-1'>
                 <CardBody>
-                    <CardTitle tag="h5">
+                    <CardTitle tag='h5' className='text-black bg-secondary bg-opacity-50 rounded shadow-lg'>
                         {choiceList.name}
                         {unsavedChanges &&
                             <Button
@@ -28,7 +28,7 @@ export default function ChoiceList({ choiceList }) {
                                 Save Changes
                             </Button>}
                     </CardTitle>
-                    <CardText className='bg-dark bg-opacity-75 rounded'>
+                    <CardText className='bg-dark bg-opacity-75 rounded shadow-lg'>
                         <List type='unstyled'
                             className='overflow-auto'
                             style={{ height: 130 }} >

@@ -3,17 +3,17 @@ import { AddList } from './AddList'
 import { SelectLayout } from './SelectLayout'
 
 export function Banner({ setLayoutId }) {
+    const mainClasses =
+        'container-fluid text-black bg-secondary bg-opacity-50 shadow-lg'
+    const dropdownClasses = 'd-flex flex-row justify-content-center'
 
     return (
-        <div className=
-            'container-fluid text-black bg-secondary bg-opacity-50 shadow-lg'
+        <div className={mainClasses}
             style={{
-                paddingTop: 120,
-                // background: 'rgba(11, 79, 79, 0.6)'
+                paddingTop: 120
             }}>
             <h1>FeedMe Now</h1>
-            <div className=
-                'd-flex flex-row justify-content-center'>
+            <div className={dropdownClasses}>
                 <SelectLayout setLayoutId={setLayoutId}
                     choiceListGroups={choiceListGroups} />
                 <AddList />

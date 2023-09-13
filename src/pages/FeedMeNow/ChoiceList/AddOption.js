@@ -1,4 +1,4 @@
-import { Form, Input } from 'reactstrap'
+import { Form, Input, InputGroup, InputGroupText } from 'reactstrap'
 import { useState } from 'react'
 
 export function AddOption({
@@ -36,7 +36,8 @@ export function AddOption({
     return (
         <>
             <Form onSubmit={handleSubmit} className='container-fluid'>
-                    <Input className='bg-secondary border-secondary'
+                <InputGroup>
+                    <Input className='bg-light bg-opacity-50 border-secondary mb-2'
                         style={{ height: 30 }}
                         label='Add Option'
                         name='newOption'
@@ -44,12 +45,13 @@ export function AddOption({
                         value={addInput}
                         onChange={handleInputChange}
                     />
-                    <span for='newOption'
-                        className='text-secondary'
+                    <InputGroupText for='newOption'
+                        className='text-black bg-secondary bg-opacity-50 border-secondary'
                         onClick={handleSubmit}
-                        style={{fontSize: 18}}>
+                        style={{fontSize: 18,  height: 30}}>
                         Add
-                    </span>
+                    </InputGroupText>
+                    </InputGroup>
             </Form>
         </>
     )

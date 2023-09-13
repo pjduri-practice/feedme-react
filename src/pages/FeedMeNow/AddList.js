@@ -9,7 +9,8 @@ export function AddList() {
         <Dropdown className='p-2 m-2'
             isOpen={dropdownOpen}
             toggle={toggle}>
-            <DropdownToggle nav caret className='p-2 rounded bg-secondary bg-opacity-75'>
+            <DropdownToggle nav caret className=
+            'p-2 rounded bg-secondary bg-opacity-75 shadow-lg'>
                 Add List
             </DropdownToggle>
             <DropdownMenu className='bg-secondary p-2'>
