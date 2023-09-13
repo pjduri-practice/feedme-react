@@ -1,4 +1,4 @@
-// import { Button } from 'reactstrap'
+import { Form, Input } from 'reactstrap'
 import { useState } from 'react'
 
 export function Option({
@@ -6,12 +6,11 @@ export function Option({
     options,
     setOptions }) {
     const { id } = option
-    const [name, setName] = useState(option.name)
+    const [optionName, setOptionName] = useState(option.name)
     const [editingOption, setEditingOption] = useState(false)
 
     const deleteOption = () => {
         const updatedOptions = options.filter(o => o.id !== id)
-        console.log(updatedOptions)
         setOptions(updatedOptions)
     }
 
@@ -29,15 +28,16 @@ export function Option({
                     <span className='m-1 btn btn-outline-secondary rounded' onClick={deleteOption} style={{ fontSize: 9, padding: 3, margin: 2 }}>
                         DEL
                     </span>
-                    {name}
+                    {optionName}
                     </p>
                 </li> :
                 <li className="bg-dark text-secondary">
-                    <form onSubmit={handleSubmit}>
-                        <input className='container-fluid bg-secondary'
-                            value={name}
-                            onChange={(e) => { setName(e.target.value) }} />
-                    </form>
+                    <Form onSubmit={handleSubmit}>
+                        <Input className='container-fluid bg-secondary'
+                            value={optionName}
+                            onBlur={() => setEditingOption(false)}
+                            onChange={(e) => { setOptionName(e.target.value) }} />
+                    </Form>
                 </li>}
         </div>
     )

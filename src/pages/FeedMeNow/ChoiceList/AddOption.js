@@ -6,7 +6,9 @@ export function AddOption({
     setAddingOption,
     options,
     setOptions, 
-    setUnsavedChanges }) {
+    // setUnsavedChanges,
+    nextId, 
+    setNextId }) {
 
     const [addInput, setAddInput] = useState('')
     const handleInputChange = (e) => { 
@@ -22,10 +24,9 @@ export function AddOption({
         setOptions(updatedOptions)
         setAddInput('')
         setAddingOption(false)
-        setUnsavedChanges(true)
+        // setUnsavedChanges(true)
     }
 
-    const [nextId, setNextId] = useState(19)
     const addOption = (name) => {
         const choiceListId = choiceList.id
         const newOption = { 'id': nextId, 'name': name, 'choiceListId': choiceListId }

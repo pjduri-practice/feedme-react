@@ -2,31 +2,79 @@ import { useState, useEffect } from "react"
 import { Option } from './Option'
 import { AddOption } from './AddOption'
 import allOptions from '../../../components/data/options.json'
-import { Card, CardText, CardBody, CardTitle, Button, List } from 'reactstrap'
+import { Card, 
+    CardText, 
+    CardBody, 
+    CardTitle, 
+    Button, 
+    List,
+    Form,
+    Input } from 'reactstrap'
 
-export default function ChoiceList({ choiceList }) {
+export default function ChoiceList({
+    choiceLists,
+    setChoiceLists,
+    choiceList,
+    nextId,
+    setNextId }) {
+
+    const { id } = choiceList
+    const cardTitleClasses =
+        'container text-black bg-secondary bg-opacity-50 rounded shadow-lg'
+    const delButtonClasses = 'btn btn-sm mt-3 bg-transparent text-black'
 
     const [randomOption, setRandomOption] = useState(null)
     const [options, setOptions] =
         useState(allOptions.filter(o => o.choiceListId == choiceList.id))
     const [addingOption, setAddingOption] = useState(false)
-    const [unsavedChanges, setUnsavedChanges] = useState(false)
+    const [editingListName, setEditingListName] = useState(false)
+    const [listName, setListName] = useState(choiceList.name)
+    // const [unsavedChanges, setUnsavedChanges] = useState(false)
+
     const getRandomIndex = () => Math.floor(Math.random() * options.length)
     const getRandomOption = () => { setRandomOption(options[getRandomIndex()]) }
     const clearRandomOption = () => { setRandomOption(null) }
 
+    const deleteChoiceList = () => {
+        const updatedChoiceLists = choiceLists.filter(c => c.id !== id)
+        setChoiceLists(updatedChoiceLists)
+    }
+
+    const handleSubmit = e => {
+        e.preventDefault()
+        setEditingListName(false)
+    }
+
     return (
-        <div className='col col-3' >
+        <div className='col col-3 m-1' >
             <Card color='secondary' className='shadow-lg bg-opacity-75 p-1'>
                 <CardBody>
-                    <CardTitle tag='h5' className='text-black bg-secondary bg-opacity-50 rounded shadow-lg'>
-                        {choiceList.name}
-                        {unsavedChanges &&
+                    <CardTitle tag='h5' 
+                    onClick={() => setEditingListName(true)}
+                    className={cardTitleClasses}>
+                        {!editingListName ?
+                            <>
+                                {listName}
+                                <span>
+                                    <p onClick={deleteChoiceList}
+                                        className={delButtonClasses}>
+                                        DEL
+                                    </p>
+                                </span>
+                            </> :
+                            <Form onSubmit={handleSubmit}>
+                                <Input className='container-fluid bg-secondary'
+                                    value={listName}
+                                    onChange={(e) => { setListName(e.target.value) }} />
+                            </Form>
+                        }
+
+                        {/* {unsavedChanges &&
                             <Button
                             className='text-black btn btn-sm bg-transparent' 
                             onClick={() => setUnsavedChanges(false)}>
                                 Save Changes
-                            </Button>}
+                            </Button>} */}
                     </CardTitle>
                     <CardText className='bg-dark bg-opacity-75 rounded shadow-lg'>
                         <List type='unstyled'
@@ -44,7 +92,9 @@ export default function ChoiceList({ choiceList }) {
                             addingOption={addingOption}
                             options={options}
                             setOptions={setOptions}
-                            setUnsavedChanges={setUnsavedChanges}
+                            // setUnsavedChanges={setUnsavedChanges}
+                            nextId={nextId}
+                            setNextId={setNextId}
                         />
                     </CardText>
                     <Button onClick={getRandomOption}

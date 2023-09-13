@@ -1,4 +1,4 @@
-import choiceListGroups from '../components/data/list-layouts.json'
+// import choiceListGroups from '../components/data/list-layouts.json'
 import logo from '../assets/FeedMeLogo6.png'
 
 import {
@@ -7,10 +7,10 @@ import {
     Nav,
     NavItem,
     NavLink,
-    UncontrolledDropdown,
-    DropdownToggle,
-    DropdownMenu,
-    DropdownItem,
+    // UncontrolledDropdown,
+    // DropdownToggle,
+    // DropdownMenu,
+    // DropdownItem,
     NavbarText
 } from 'reactstrap'
 
@@ -22,7 +22,7 @@ export default function NavBar({...args }) {
             >
                 <NavbarBrand href='/'>
                     {/* FeedMe */}
-                    <img src={logo} alt='logo' style={{ height: 80, marginTop: 0, marginBottom: 0, padding: 0 }} />
+                    <img src={logo} alt='FeedMe' style={{ height: 80, marginTop: 0, marginBottom: 0, padding: 0 }} />
                 </NavbarBrand>
                 <Nav className="me-auto" navbar>
                     <NavLink href='/feedmenow'

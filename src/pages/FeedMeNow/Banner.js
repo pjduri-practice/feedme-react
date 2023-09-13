@@ -2,7 +2,7 @@ import choiceListGroups from '../../components/data/list-layouts.json'
 import { AddList } from './AddList'
 import { SelectLayout } from './SelectLayout'
 
-export function Banner({ setLayoutId, setChoiceLists }) {
+export function Banner({ layoutId, setLayoutId, choiceLists, setChoiceLists, nextId, setNextId }) {
     const mainClasses =
         'container-fluid text-black bg-transparent'
     const dropdownClasses = 'd-flex flex-row justify-content-center'
@@ -17,7 +17,11 @@ export function Banner({ setLayoutId, setChoiceLists }) {
                 <SelectLayout setLayoutId={setLayoutId}
                     setChoiceLists={setChoiceLists}
                     choiceListGroups={choiceListGroups} />
-                <AddList />
+                <AddList layoutId={layoutId}
+                    choiceLists={choiceLists}
+                    setChoiceLists={setChoiceLists}
+                    nextId={nextId}
+                    setNextId={setNextId} />
             </div>
         </div>
     )

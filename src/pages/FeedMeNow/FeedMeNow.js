@@ -17,12 +17,19 @@ export default function FeedMeNow() {
     return (
         <div className='container-fluid' >
             <Banner
+                layoutId={layoutId}
                 setLayoutId={setLayoutId}
-                // setChoiceLists={setChoiceLists}
+                choiceLists={choiceLists}
+                setChoiceLists={setChoiceLists}
                 nextId={nextId}
                 setNextId={setNextId} />
             <div className='row container-fluid' style={{ marginTop: 30 }}>
-                {choiceLists.map(c => <ChoiceList key={c.id} choiceList={c} setNextId={setNextId} nextId={nextId} />)}
+                {choiceLists.map(c => <ChoiceList key={c.id}
+                    choiceList={c}
+                    choiceLists={choiceLists}
+                    setChoiceLists={setChoiceLists}
+                    setNextId={setNextId}
+                    nextId={nextId} />)}
             </div>
         </div>
     )
