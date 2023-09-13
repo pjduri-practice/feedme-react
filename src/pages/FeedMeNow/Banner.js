@@ -4,7 +4,7 @@ import { SelectLayout } from './SelectLayout'
 
 export function Banner({ setLayoutId }) {
     const mainClasses =
-        'container-fluid text-black bg-secondary bg-opacity-50 shadow-lg'
+        'container-fluid text-black bg-transparent'
     const dropdownClasses = 'd-flex flex-row justify-content-center'
 
     return (

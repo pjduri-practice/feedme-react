@@ -13,7 +13,7 @@ import {
     DropdownItem,
     NavbarText
 } from 'reactstrap'
-import { Banner } from '../pages/FeedMeNow/Banner'
+// import { Banner } from '../pages/FeedMeNow/Banner'
 
 export default function NavBar({ setLayoutId, ...args }) {
     return (
@@ -52,7 +52,7 @@ export default function NavBar({ setLayoutId, ...args }) {
                 </Nav>
                 <NavbarText style={{color: 'black'}}>Welcome!</NavbarText>
             </Navbar>
-            <Banner setLayoutId={setLayoutId}/>
+            {/* <Banner setLayoutId={setLayoutId}/> */}
         </>
     )
 }
