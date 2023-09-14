@@ -29,19 +29,6 @@ export default function NavBar({...args }) {
                         style={{ color: 'black' }}>
                         FeedMe Now
                     </NavLink>
-                    {/* <UncontrolledDropdown nav inNavbar>
-                        <DropdownToggle nav caret style={{color: 'black'}}>
-                        </DropdownToggle>
-                        <DropdownMenu className='bg-secondary'>
-                            {choiceListGroups.map(g =>
-                                <DropdownItem
-                                    key={g.id}
-                                    className='text-dark bg-secondary'
-                                    onClick={() => setLayoutId(g.id)}>
-                                    {g.name}
-                                </DropdownItem>)}
-                        </DropdownMenu>
-                    </UncontrolledDropdown> */}
                     <NavItem>
                         <NavLink href="/feedmelater" style={{color: 'black'}}>
                             FeedMe Later

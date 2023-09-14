@@ -1,5 +1,4 @@
-import React from 'react'
-import { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Form, InputGroupText, InputGroup, Input }
     from 'reactstrap'
 
@@ -54,20 +53,25 @@ export function SelectLayout({
                 Select Layout
             </DropdownToggle>
             <DropdownMenu className='bg-dark bg-opacity-75 p-1'>
-                {listLayouts.map(g =>
-                    <DropdownItem
-                        key={g.id}
-                        className='bg-secondary bg-opacity-75 border 
+                {listLayouts.map(l =>
+                    <div className='d-flex flex-row'>
+                        <DropdownItem
+                            key={l.id}
+                            className='bg-secondary bg-opacity-75 border 
                             border-dark border-opacity-50 rounded text-black'>
-                        <span onClick={() => handleSelectLayout(g.id)}>
-                            {g.name}
-                        </span>
-                        {listLayouts.length > 1 && <span className='m-2 rounded border border-dark'
-                            onClick={() => deleteLayout(g.id)}
+                            <span onClick={() => handleSelectLayout(l.id)}>
+                                {l.name}
+                            </span>
+
+                        </DropdownItem>
+                        {listLayouts.length > 1 && <span className='fw-bolder bg-dark bg-opacity-75 text-secondary m-2 rounded border border-secondary'
+                            onClick={() => deleteLayout(l.id)}
                             style={{ fontSize: 12, padding: 2 }}>
                             DEL
                         </span>}
-                    </DropdownItem>)}
+                    </div>)
+                }
+
                 <Form onSubmit={handleAddLayout}>
                     <InputGroup className='p-1'>
                         <Input type='text'
