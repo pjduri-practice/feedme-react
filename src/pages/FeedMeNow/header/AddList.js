@@ -1,4 +1,4 @@
-import React, { useState, onKeyPress } from 'react'
+import React, { useState } from 'react'
 import { Dropdown, DropdownMenu, DropdownToggle, Form, InputGroup, Input, InputGroupText } from 'reactstrap'
 
 export function AddList({ layoutId, choiceLists, setChoiceLists, nextId, setNextId }) {

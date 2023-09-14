@@ -20,7 +20,7 @@ export default function FeedMeNow() {
 
     useEffect(() => {
         setLayoutName(listLayouts.find(l => l.id === layoutId).name)
-    }, [layoutId])
+    }, [layoutId, listLayouts])
 
     return (
         <div className='container-fluid' >

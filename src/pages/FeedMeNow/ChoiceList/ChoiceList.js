@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { Option } from './Option'
 import { AddOption } from './AddOption'
 import allOptions from '../../../components/data/options.json'
@@ -25,7 +25,7 @@ export default function ChoiceList({
 
     const [randomOption, setRandomOption] = useState(null)
     const [options, setOptions] =
-        useState(allOptions.filter(o => o.choiceListId == choiceList.id))
+        useState(allOptions.filter(o => o.choiceListId === choiceList.id))
     const [addingOption, setAddingOption] = useState(false)
     const [editingListName, setEditingListName] = useState(false)
     const [listName, setListName] = useState(choiceList.name)
