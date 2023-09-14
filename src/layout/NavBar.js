@@ -13,6 +13,7 @@ import {
     // DropdownItem,
     NavbarText
 } from 'reactstrap'
+import AuthDropdown from './AuthDropdown'
 
 export default function NavBar({...args }) {
     return (
@@ -37,6 +38,7 @@ export default function NavBar({...args }) {
 
                 </Nav>
                 <NavbarText style={{color: 'black'}}>Welcome!</NavbarText>
+                <AuthDropdown />
             </Navbar>
             {/* <Banner setLayoutId={setLayoutId}/> */}
         </>
