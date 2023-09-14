@@ -37,6 +37,8 @@ export default function ChoiceList({
 
     const deleteChoiceList = () => {
         const updatedChoiceLists = choiceLists.filter(c => c.id !== id)
+        const updatedOptions = options.filter(o => o.choiceListId !== id)
+        setOptions(updatedOptions)
         setChoiceLists(updatedChoiceLists)
     }
 
@@ -62,8 +64,9 @@ export default function ChoiceList({
                                     </p>
                                 </span>
                             </> :
-                            <Form onSubmit={handleSubmit}>
-                                <Input className='container-fluid bg-secondary'
+                            <Form onSubmit={handleSubmit} onBlur={() => {setEditingListName(false)}}>
+                                <Input autoFocus 
+                                    className='container-fluid bg-light bg-opacity-50'
                                     value={listName}
                                     onChange={(e) => { setListName(e.target.value) }} />
                             </Form>

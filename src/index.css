@@ -5,9 +5,12 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url('./assets/fresh-colourful-ingredients-edit.jpg.png');
+  
+  background-image: url('./assets/fresh-colourful-ingredients-edit.jpg');
   background-size: cover;
-  height: 100vh;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100%;
 }
 
 code {

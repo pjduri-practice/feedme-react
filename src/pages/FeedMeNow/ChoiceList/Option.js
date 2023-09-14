@@ -25,15 +25,16 @@ export function Option({
                 <li
                     className='text-black text-start text-nowrap'
                     onClick={() => setEditingOption(true)}><p>
-                    <span className='m-1 btn btn-outline-secondary rounded' onClick={deleteOption} style={{ fontSize: 9, padding: 3, margin: 2 }}>
-                        DEL
-                    </span>
-                    {optionName}
+                        {options.length > 2 && <span className='m-1 btn btn-outline-secondary rounded' onClick={deleteOption} style={{ fontSize: 9, padding: 3, margin: 2 }}>
+                            DEL
+                        </span>}
+                        {optionName}
                     </p>
                 </li> :
                 <li className="bg-dark text-secondary">
                     <Form onSubmit={handleSubmit}>
-                        <Input className='container-fluid bg-secondary'
+                        <Input autoFocus
+                            className='container-fluid bg-secondary'
                             value={optionName}
                             onBlur={() => setEditingOption(false)}
                             onChange={(e) => { setOptionName(e.target.value) }} />

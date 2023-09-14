@@ -4,6 +4,8 @@ import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Form, InputGroupT
     from 'reactstrap'
 
 export function SelectLayout({
+    choiceLists,
+    setChoiceLists,
     setLayoutId,
     listLayouts,
     setListLayouts,
@@ -28,10 +30,17 @@ export function SelectLayout({
         return newLayout
     }
 
+    const deleteLayout = (id) => {
+        const updatedLayouts = listLayouts.filter(l => l.id !== id)
+        const updatedChoiceLists = choiceLists.filter(c => c.layout_id !== id)
+        setLayoutId(5)
+        setListLayouts(updatedLayouts)
+        setChoiceLists(updatedChoiceLists)
+    }
+
     const handleAddLayout = e => {
         e.preventDefault()
         const newLayout = addLayout(layoutInput)
-        console.log(newLayout)
         setLayoutId(newLayout.id)
         const updatedLayouts = [...listLayouts, newLayout]
         setListLayouts(updatedLayouts)
@@ -48,9 +57,16 @@ export function SelectLayout({
                 {listLayouts.map(g =>
                     <DropdownItem
                         key={g.id}
-                        className='bg-secondary bg-opacity-75 border border-dark border-opacity-50 rounded text-black'
-                        onClick={() => handleSelectLayout(g.id)}>
-                        {g.name}
+                        className='bg-secondary bg-opacity-75 border 
+                            border-dark border-opacity-50 rounded text-black'>
+                        <span onClick={() => handleSelectLayout(g.id)}>
+                            {g.name}
+                        </span>
+                        {listLayouts.length > 1 && <span className='m-2 rounded border border-dark'
+                            onClick={() => deleteLayout(g.id)}
+                            style={{ fontSize: 12, padding: 2 }}>
+                            DEL
+                        </span>}
                     </DropdownItem>)}
                 <Form onSubmit={handleAddLayout}>
                     <InputGroup className='p-1'>
