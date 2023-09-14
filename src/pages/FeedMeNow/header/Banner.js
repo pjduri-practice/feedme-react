@@ -1,4 +1,4 @@
-import choiceListGroups from '../../components/data/list-layouts.json'
+import choiceListGroups from '../../../components/data/list-layouts.json'
 import { AddList } from './AddList'
 import { SelectLayout } from './SelectLayout'
 
