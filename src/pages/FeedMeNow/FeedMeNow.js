@@ -5,7 +5,8 @@ import { Banner } from './Banner'
 import choiceListGroups from '../../components/data/list-layouts.json'
 
 export default function FeedMeNow() {
-    const [layoutId, setLayoutId] = useState(choiceListGroups[0].id)
+    const [listLayouts, setListLayouts] = useState(choiceListGroups)
+    const [layoutId, setLayoutId] = useState(listLayouts[0].id)
     const [nextId, setNextId] = useState(19)
     const [choiceLists, setChoiceLists] = useState(([]))
 
@@ -17,6 +18,8 @@ export default function FeedMeNow() {
     return (
         <div className='container-fluid' >
             <Banner
+                listLayouts={listLayouts}
+                setListLayouts={setListLayouts}
                 layoutId={layoutId}
                 setLayoutId={setLayoutId}
                 choiceLists={choiceLists}

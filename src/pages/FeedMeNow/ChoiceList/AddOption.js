@@ -38,16 +38,16 @@ export function AddOption({
         <>
             <Form onSubmit={handleSubmit} className='container-fluid'>
                 <InputGroup>
-                    <Input className='bg-light bg-opacity-50 border-secondary mb-2'
+                    <Input className='bg-light bg-opacity-50 border-dark mb-2'
                         style={{ height: 30 }}
                         label='Add Option'
-                        name='newOption'
                         type='text'
                         value={addInput}
+                        placeholder='add'
                         onChange={handleInputChange}
                     />
-                    <InputGroupText for='newOption'
-                        className='text-black bg-secondary bg-opacity-50 border-secondary'
+                    <InputGroupText
+                        className='text-black bg-secondary bg-opacity-50 border-dark'
                         onClick={handleSubmit}
                         style={{fontSize: 18,  height: 30}}>
                         Add

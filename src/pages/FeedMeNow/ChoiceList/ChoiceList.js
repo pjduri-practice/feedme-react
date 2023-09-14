@@ -20,7 +20,7 @@ export default function ChoiceList({
 
     const { id } = choiceList
     const cardTitleClasses =
-        'container text-black bg-secondary bg-opacity-50 rounded shadow-lg'
+        'container border border-dark text-black bg-dark bg-opacity-50 rounded shadow-lg'
     const delButtonClasses = 'btn btn-sm mt-3 bg-transparent text-black'
 
     const [randomOption, setRandomOption] = useState(null)
@@ -76,7 +76,7 @@ export default function ChoiceList({
                                 Save Changes
                             </Button>} */}
                     </CardTitle>
-                    <CardText className='bg-dark bg-opacity-75 rounded shadow-lg'>
+                    <CardText className='bg-dark border border-dark bg-opacity-75 rounded shadow-lg p-1'>
                         <List type='unstyled'
                             className='overflow-auto'
                             style={{ height: 130 }} >
@@ -98,7 +98,7 @@ export default function ChoiceList({
                         />
                     </CardText>
                     <Button onClick={getRandomOption}
-                        className='fs-6 text-black bg-dark bg-opacity-75'>
+                        className='fs-6 text-black bg-dark bg-opacity-75 border-dark'>
                         FeedMe Something!
                     </Button>
                     {randomOption && <Button onClick={clearRandomOption} color='black'>Clear</Button>}
