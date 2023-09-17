@@ -4,9 +4,8 @@ import allChoiceLists from '../../components/data/choice-lists.json'
 import { Banner } from './header/Banner'
 import choiceListGroups from '../../components/data/list-layouts.json'
 // import { Button, Form, Input, InputGroup, InputGroupText } from 'reactstrap'
-import LayoutLabel from './header/LayoutLabel'
 
-export default function FeedMeNow() {
+export default function FeedMeNow({ bgGradient }) {
     const [listLayouts, setListLayouts] = useState(choiceListGroups)
     const [layoutId, setLayoutId] = useState(listLayouts[0].id)
     const [nextId, setNextId] = useState(19)
@@ -25,20 +24,19 @@ export default function FeedMeNow() {
     return (
         <div className='container-fluid' >
             <Banner
+                bgGradient={bgGradient}
                 listLayouts={listLayouts}
                 setListLayouts={setListLayouts}
                 layoutId={layoutId}
+                layoutName={layoutName}
+                setLayoutName={setLayoutName}
                 setLayoutId={setLayoutId}
                 choiceLists={choiceLists}
                 setChoiceLists={setChoiceLists}
                 nextId={nextId}
                 setNextId={setNextId} />
-            <LayoutLabel layoutId={layoutId}
-                layoutName={layoutName}
-                setLayoutName={setLayoutName}
-                listLayouts={listLayouts}
-                setListLayouts={setListLayouts}/>
-            <div className='row container-fluid' style={{ marginTop: 30 }}>
+
+            <div className='d-flex flex-row container-fluid' style={{ marginTop: 30 }}>
                 {choiceLists.map(c => <ChoiceList key={c.id}
                     choiceList={c}
                     choiceLists={choiceLists}

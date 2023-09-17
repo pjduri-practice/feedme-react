@@ -2,14 +2,16 @@ import { useState } from "react"
 import { Option } from './Option'
 import { AddOption } from './AddOption'
 import allOptions from '../../../components/data/options.json'
-import { Card, 
-    CardText, 
-    CardBody, 
-    CardTitle, 
-    Button, 
+import {
+    Card,
+    CardText,
+    CardBody,
+    CardTitle,
+    Button,
     List,
     Form,
-    Input } from 'reactstrap'
+    Input
+} from 'reactstrap'
 
 export default function ChoiceList({
     choiceLists,
@@ -19,9 +21,15 @@ export default function ChoiceList({
     setNextId }) {
 
     const { id } = choiceList
-    const cardTitleClasses =
-        'container border border-dark text-black bg-dark bg-opacity-50 rounded shadow-lg'
-    const delButtonClasses = 'btn btn-sm mt-3 bg-transparent text-black'
+    const bsCardTitleClasses =
+        'container border border-dark text-black bg-light' +
+        ' bg-opacity-50 rounded-pill shadow-lg'
+    const bsDelButtonClasses = 'btn btn-sm mt-3 bg-transparent text-black'
+    const bgGradient =
+        'linear-gradient(to top left, rgba(56, 253, 253, 0.2), ' +
+        'rgba(10, 87, 87, 0.9))'
+    const bsCardTextClasses =
+        'bg-dark border border-dark bg-opacity-50 rounded shadow-lg p-1'
 
     const [randomOption, setRandomOption] = useState(null)
     const [options, setOptions] =
@@ -48,24 +56,29 @@ export default function ChoiceList({
     }
 
     return (
-        <div className='col col-3 m-1' >
-            <Card color='secondary' className='shadow-lg bg-opacity-75 p-1'>
+        <div className='col col-3 m-2' >
+            <Card color='light'
+                className='shadow-lg bg-opacity-75 p-1 border border-dark'
+                style={{
+                    backgroundImage: bgGradient
+                }}>
                 <CardBody>
-                    <CardTitle tag='h5' 
-                    onClick={() => setEditingListName(true)}
-                    className={cardTitleClasses}>
+                    <CardTitle tag='h5'
+                        onClick={() => setEditingListName(true)}
+                        className={bsCardTitleClasses}
+                        style={{ backgroundImage: bgGradient }}>
                         {!editingListName ?
                             <>
                                 {listName}
                                 <span>
                                     <p onClick={deleteChoiceList}
-                                        className={delButtonClasses}>
+                                        className={bsDelButtonClasses}>
                                         DEL
                                     </p>
                                 </span>
                             </> :
-                            <Form onSubmit={handleSubmit} onBlur={() => {setEditingListName(false)}}>
-                                <Input autoFocus 
+                            <Form onSubmit={handleSubmit} onBlur={() => { setEditingListName(false) }}>
+                                <Input autoFocus
                                     className='container-fluid bg-light bg-opacity-50'
                                     value={listName}
                                     onChange={(e) => { setListName(e.target.value) }} />
@@ -79,7 +92,8 @@ export default function ChoiceList({
                                 Save Changes
                             </Button>} */}
                     </CardTitle>
-                    <CardText className='bg-dark border border-dark bg-opacity-75 rounded shadow-lg p-1'>
+                    <CardText className={bsCardTextClasses}
+                        style={{ backgroundImage: bgGradient }}>
                         <List type='unstyled'
                             className='overflow-auto'
                             style={{ height: 130 }} >
@@ -87,10 +101,12 @@ export default function ChoiceList({
                                 <Option key={o.id}
                                     option={o}
                                     setOptions={setOptions}
-                                    options={options} />
+                                    options={options}
+                                    bgGradient={bgGradient} />
                             )}
                         </List>
-                        <AddOption choiceList={choiceList}
+                        <AddOption bgGradient={bgGradient}
+                            choiceList={choiceList}
                             setAddingOption={setAddingOption}
                             addingOption={addingOption}
                             options={options}
@@ -101,7 +117,8 @@ export default function ChoiceList({
                         />
                     </CardText>
                     <Button onClick={getRandomOption}
-                        className='fs-6 text-black bg-dark bg-opacity-75 border-dark'>
+                        className='fs-6 text-black bg-light bg-opacity-25 border-dark rounded-pill'
+                        style={{ backgroundImage: bgGradient }}>
                         FeedMe Something!
                     </Button>
                     {randomOption && <Button onClick={clearRandomOption} color='black'>Clear</Button>}

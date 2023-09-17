@@ -1,9 +1,8 @@
-/* html {
-  background-color: rgb(13, 70, 70);
-} */
-
 body {
   margin: 0;
+  background-image: linear-gradient(to top left, rgba(32, 173, 173, 0.2), rgba(1, 53, 53, 1));;
+  background-size: cover;
+  background-attachment: fixed;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;

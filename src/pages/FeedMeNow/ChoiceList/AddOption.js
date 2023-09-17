@@ -2,6 +2,7 @@ import { Form, Input, InputGroup, InputGroupText } from 'reactstrap'
 import { useState } from 'react'
 
 export function AddOption({
+    bgGradient,
     choiceList,
     setAddingOption,
     options,
@@ -38,18 +39,17 @@ export function AddOption({
         <>
             <Form onSubmit={handleSubmit} className='container-fluid'>
                 <InputGroup>
-                    <Input className='bg-light bg-opacity-50 border-dark mb-2'
-                        style={{ height: 30 }}
+                    <Input className='bg-light bg-opacity-75 border-dark mb-2'
+                        style={{ height: 30, fontSize: 18 }}
                         label='Add Option'
                         type='text'
                         value={addInput}
-                        placeholder='add'
                         onChange={handleInputChange}
                     />
                     <InputGroupText
-                        className='text-black bg-secondary bg-opacity-50 border-dark'
+                        className='p-1 text-black bg-secondary bg-opacity-25 border-dark'
                         onClick={handleSubmit}
-                        style={{fontSize: 18,  height: 30}}>
+                        style={{fontSize: 18,  height: 30, backgroundImage: bgGradient}}>
                         Add
                     </InputGroupText>
                     </InputGroup>
