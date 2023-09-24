@@ -12,67 +12,59 @@ import {
     CardText,
     Button,
 } from 'reactstrap'
+import LoginForm from './LoginForm'
+import RegisterForm from './RegisterForm'
 
 export default function AuthNav() {
+
+    const activeTab = 'active bg-secondary border-dark bg-opacity-50'
+    const inactiveTab = 'bg-secondary border-dark bg-opacity-50'
+    const [loginTabActive, setLoginTabActive] = useState(activeTab)
+    const [registerTabActive, setRegisterTabActive] = useState(inactiveTab)
+    const [activeNavTab, setActiveNavTab] = useState('1')
+
+    const handleLoginTab = () => {
+        setLoginTabActive(activeTab)
+        setRegisterTabActive(inactiveTab)
+        setActiveNavTab('1')
+    }
+    
+    const handleRegisterTab = () => {
+        setLoginTabActive(activeTab)
+        setRegisterTabActive(inactiveTab)
+        setActiveNavTab('2')
+    }
+
     return (
-        <div className='bg-secondary'>
-            <Nav tabs className='bg-secondary'>
-                <NavItem className='bg-secondary'>
+        <div className='bg-secondary bg-opacity-50'>
+            <Nav tabs className='bg-secondary border-dark bg-opacity-50'>
+                <NavItem className='bg-secondary bg-opacity-50'>
                     <NavLink
-                        className="active bg-secondary"
-                        onClick={function noRefCheck() { }}
+                        className={loginTabActive}
+                        onClick={handleLoginTab}
                     >
-                        Tab1
+                        Login
                     </NavLink>
                 </NavItem>
-                <NavItem className='bg-secondary'>
+                <NavItem className='bg-secondary bg-opacity-50'>
                     <NavLink
-                        className=""
-                        onClick={function noRefCheck() { }}
+                        className= {registerTabActive}
+                        onClick={handleRegisterTab}
                     >
-                        Tab2
+                        Register
                     </NavLink>
                 </NavItem>
             </Nav>
-            <TabContent  style={{height: 400, width: 400}} activeTab="1">
-                <TabPane tabId="1" className='bg-secondary'>
+            <TabContent className='bg-dark bg-opacity-50'  style={{height: 400, width: 400}} activeTab={activeNavTab}>
+                <TabPane tabId="1" className='bg-secondary bg-opacity-50'>
                     <Row>
                         <Col sm="12">
-                            <h4 className='p-2'>
-                                Log In
-                            </h4>
+                            <LoginForm />
                         </Col>
                     </Row>
                 </TabPane>
-                <TabPane tabId="2">
-                    <Row>
-                        <Col sm="6">
-                            <Card body>
-                                <CardTitle>
-                                    Special Title Treatment
-                                </CardTitle>
-                                <CardText>
-                                    With supporting text below as a natural lead-in to additional content.
-                                </CardText>
-                                <Button>
-                                    Go somewhere
-                                </Button>
-                            </Card>
-                        </Col>
-                        <Col sm="6">
-                            <Card body>
-                                <CardTitle>
-                                    Special Title Treatment
-                                </CardTitle>
-                                <CardText>
-                                    With supporting text below as a natural lead-in to additional content.
-                                </CardText>
-                                <Button>
-                                    Go somewhere
-                                </Button>
-                            </Card>
-                        </Col>
-                    </Row>
+                <TabPane tabId="2" className='bg-secondary bg-opacity-50'>
+                    <RegisterForm />
                 </TabPane>
             </TabContent>
         </div>

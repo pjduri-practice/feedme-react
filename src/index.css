@@ -41,5 +41,5 @@ code {
 }
 
 ::-webkit-scrollbar-corner {
-  background: rgb(67, 64, 64);
+  background: transparent;
 }

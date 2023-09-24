@@ -1,5 +1,5 @@
-import { Form, Input, InputGroup, InputGroupText } from 'reactstrap'
 import { useState } from 'react'
+import IGForm from '../../../components/IGForm'
 
 export function Option({
     option,
@@ -15,8 +15,11 @@ export function Option({
         setOptions(updatedOptions)
     }
 
+    const handleChange = (e) => { setOptionName(e.target.value) }
+
     const handleSubmit = (e) => {
         e.preventDefault()
+        option.name = optionName
         setEditingOption(false)
     }
 
@@ -26,41 +29,41 @@ export function Option({
                 <li
                     className='text-black text-start text-nowrap'
                     onClick={() => setEditingOption(true)}>
-                    <p>
-                        {options.length > 2 && <span className='m-1 btn btn-outline-danger rounded text-danger'
+                    <div className='container-fluid'
+                        style={{
+                            width: 300
+                        }}>
+                        {options.length > 2 && <span className='btn btn-outline-danger rounded p-1 text-danger shadow'
                             onClick={deleteOption}
                             style={{
                                 fontSize: 9,
                                 padding: 3,
-                                margin: 2,
+                                marginTop: 3,
+                                marginLeft: -15,
+                                marginRight:5,
                                 backgroundImage: bgGradient
                             }}>
                             DEL
                         </span>}
-                        {optionName}
-                    </p>
+                        <span className='text-black pt-1 pb-1 ps-2 pe-5 fw-bold rounded-pill shadow bg-light bg-opacity-75'
+                            style={{
+                                fontSize: 16,
+                                backgroundImage: bgGradient
+                            }}>
+                            {optionName}
+                        </span>
+                    </div>
                 </li> :
-                <li className="bg-dark text-secondary rounded">
-                    <Form onSubmit={handleSubmit}>
-                        <InputGroup>
-                            <Input autoFocus
-                                type='text'
-                                style={{ height: 30, fontSize: 18 }}
-                                className='container-fluid'
-                                value={optionName}
-                                onBlur={() => setEditingOption(false)}
-                                onChange={(e) => { setOptionName(e.target.value) }} />
-                            <InputGroupText
-                                className='text-black bg-light bg-opacity-25 border-dark'
-                                style={{
-                                    fontSize: 12,
-                                    height: 30,
-                                    backgroundImage: bgGradient
-                                }}>
-                                Done
-                            </InputGroupText>
-                        </InputGroup>
-                    </Form>
+                <li className="bg-transparent text-secondary rounded"
+                    style={{ width: 300 }}>
+                    <IGForm bgGradient={bgGradient}
+                        handleSubmit={handleSubmit}
+                        inputText={optionName}
+                        handleBlur={handleSubmit}
+                        handleChange={handleChange}
+                        leftBtnTxt=''
+                        rtBtn1Txt='Done'
+                        rtBtn2Txt={''} />
                 </li>}
         </div>
     )

@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { Option } from './Option'
 import { AddOption } from './AddOption'
-import allOptions from '../../../components/data/options.json'
+import allOptions from '../../../data/options.json'
 import {
     Card,
     CardText,
@@ -14,6 +14,7 @@ import {
 } from 'reactstrap'
 
 export default function ChoiceList({
+    bgGradient,
     choiceLists,
     setChoiceLists,
     choiceList,
@@ -25,9 +26,6 @@ export default function ChoiceList({
         'container border border-dark text-black bg-light' +
         ' bg-opacity-50 rounded-pill shadow-lg'
     const bsDelButtonClasses = 'btn btn-sm mt-3 bg-transparent text-black'
-    const bgGradient =
-        'linear-gradient(to top left, rgba(56, 253, 253, 0.2), ' +
-        'rgba(10, 87, 87, 0.9))'
     const bsCardTextClasses =
         'bg-dark border border-dark bg-opacity-50 rounded shadow-lg p-1'
 
@@ -124,8 +122,8 @@ export default function ChoiceList({
                     {randomOption && <Button onClick={clearRandomOption} color='black'>Clear</Button>}
                 </CardBody>
                 {randomOption &&
-                    <CardTitle color='black'>
-                        <div>
+                    <CardTitle>
+                        <div className='text-black'>
                             <h5>{randomOption.name.toUpperCase()}</h5>
                             <p>FOR THE WIN!</p>
                         </div>

@@ -1,9 +1,10 @@
-import choiceListGroups from '../../../components/data/list-layouts.json'
+import choiceListGroups from '../../../data/list-layouts.json'
 import { AddList } from './AddList'
 import { SelectLayout } from './SelectLayout'
 
 export function Banner({
     bgGradient,
+    bsBtnClasses,
     listLayouts,
     setListLayouts,
     layoutId,
@@ -13,27 +14,18 @@ export function Banner({
     setChoiceLists,
     nextId,
     setNextId }) {
-    const mainClasses = 'container-fluid text-black bg-transparent'
+    const mainClasses = 'container text-black bg-transparent pt-4 mt-5'
     const dropdownClasses = 'd-flex flex-row justify-content-center'
-    const bsTitleClasses = 
-        'animate-character'
+    const bsTitleClasses = 'animate-character fw-bolder fs-1'
 
     return (
-        <div className={mainClasses}
-            style={{
-                paddingTop: 75
-            }}>
-            <h1 className='fw-bolder'>
-                <span className={bsTitleClasses}
-                    // style={{ backgroundImage: bgGradient }}
-                    >
-                    {/* <span className='animate-character'> */}
+        <div className={mainClasses}>
+            <div className={bsTitleClasses}>
                         FeedMe Now
-                    {/* </span> */}
-                </span>
-            </h1>
+            </div>
             <div className={dropdownClasses}>
-                <SelectLayout bgGradient={bgGradient}
+                <SelectLayout bsBtnClasses={bsBtnClasses}
+                    bgGradient={bgGradient}
                     layoutName={layoutName}
                     setLayoutId={setLayoutId}
                     choiceLists={choiceLists}
@@ -44,6 +36,7 @@ export function Banner({
                     nextId={nextId}
                     setNextId={setNextId} />
                 <AddList bgGradient={bgGradient}
+                    bsBtnClasses={bsBtnClasses}
                     layoutId={layoutId}
                     choiceLists={choiceLists}
                     setChoiceLists={setChoiceLists}

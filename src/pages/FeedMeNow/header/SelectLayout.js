@@ -4,6 +4,7 @@ import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Form, InputGroupT
 
 export function SelectLayout({
     bgGradient,
+    bsBtnClasses,
     layoutName,
     choiceLists,
     setChoiceLists,
@@ -18,7 +19,7 @@ export function SelectLayout({
         'bg-secondary bg-opacity-50 border border-dark border-opacity-50 rounded text-black fw-bold'
     const bsSelectToggleClasses =
         'fw-bold p-2 rounded bg-secondary bg-opacity-75 shadow-lg border border-dark'
-    const bsBtnClasses =
+    const bsButtonClasses =
         'fw-bolder bg-dark bg-opacity-75 text-secondary m-2 rounded border border-secondary'
 
     const [layoutInput, setLayoutInput] = useState('')
@@ -58,7 +59,7 @@ export function SelectLayout({
             isOpen={dropdownOpen}
             toggle={toggle}>
             <DropdownToggle nav caret
-                className={bsSelectToggleClasses}
+                className={bsBtnClasses}
                 style={{ backgroundImage: bgGradient }}>
                 {layoutName}
             </DropdownToggle>
@@ -72,11 +73,11 @@ export function SelectLayout({
                             onClick={() => handleSelectLayout(l.id)}>
                             {l.name}
                         </DropdownItem>
-                        <span className={bsBtnClasses}
+                        <span className={bsButtonClasses}
                             >
                             EDIT
                         </span>
-                        {listLayouts.length > 1 && <span className={bsBtnClasses}
+                        {listLayouts.length > 1 && <span className={bsButtonClasses}
                             onClick={() => deleteLayout(l.id)}
                             style={{ fontSize: 12, padding: 2 }}>
                             DEL

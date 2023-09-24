@@ -7,9 +7,10 @@ export function AddList({
     setChoiceLists, 
     nextId, 
     setNextId, 
-    bgGradient }) {
+    bgGradient,
+    bsBtnClasses }) {
 
-    const bsAddBtnClasses = 'text-black fw-bold bg-dark bg-opacity-50 border-dark'
+    const bsAddBtnClasses = 'text-black fw-bold bg-light bg-opacity-50 border-dark'
     const [dropdownOpen, setDropdownOpen] = useState(false)
     const toggle = () => { setDropdownOpen(!dropdownOpen) }
     const [addListInput, setAddListInput] = useState('')
@@ -38,24 +39,28 @@ export function AddList({
             isOpen={dropdownOpen}
             toggle={toggle}>
             <DropdownToggle nav caret 
-            className='fw-bold p-2 rounded bg-secondary bg-opacity-75 shadow-lg border border-dark'
+            className={bsBtnClasses}
             style={{ backgroundImage: bgGradient}}>
                 Add List
             </DropdownToggle>
-            <DropdownMenu className='bg-dark p-2 bg-opacity-75'
+            <DropdownMenu className='bg-dark shadow p-2 bg-opacity-25'
                  style={{ backgroundImage: bgGradient }}>
                 <Form onSubmit={handleSubmit}>
-                    <InputGroup>
+                    <InputGroup className='shadow'>
                         <Input type='text'
                         style={{ height: 30 }}
-                            className='bg-light bg-opacity-25 border-dark'
+                            className='bg-light bg-opacity-75 border-dark'
                             value={addListInput}
                             placeholder='add'
                             onChange={(e) => setAddListInput(e.target.value)} />
                         <InputGroupText
                             className={bsAddBtnClasses}
                             onClick={handleSubmit}
-                            style={{ fontSize: 18, height: 30 }}>
+                            style={{ 
+                                backgroundImage: bgGradient, 
+                                fontSize: 18, 
+                                height: 30 
+                                }}>
                             Add
                         </InputGroupText>
                     </InputGroup>

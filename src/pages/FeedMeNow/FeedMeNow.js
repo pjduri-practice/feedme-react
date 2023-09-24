@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react'
 import ChoiceList from './ChoiceList'
-import allChoiceLists from '../../components/data/choice-lists.json'
+import allChoiceLists from '../../data/choice-lists.json'
 import { Banner } from './header/Banner'
-import choiceListGroups from '../../components/data/list-layouts.json'
+import choiceListGroups from '../../data/list-layouts.json'
 // import { Button, Form, Input, InputGroup, InputGroupText } from 'reactstrap'
 
-export default function FeedMeNow({ bgGradient }) {
+export default function FeedMeNow({ bgGradient, bsBtnClasses }) {
     const [listLayouts, setListLayouts] = useState(choiceListGroups)
     const [layoutId, setLayoutId] = useState(listLayouts[0].id)
     const [nextId, setNextId] = useState(19)
@@ -24,6 +24,7 @@ export default function FeedMeNow({ bgGradient }) {
     return (
         <div className='container-fluid' >
             <Banner
+                bsBtnClasses={bsBtnClasses}
                 bgGradient={bgGradient}
                 listLayouts={listLayouts}
                 setListLayouts={setListLayouts}
@@ -38,6 +39,7 @@ export default function FeedMeNow({ bgGradient }) {
 
             <div className='d-flex flex-row container-fluid' style={{ marginTop: 30 }}>
                 {choiceLists.map(c => <ChoiceList key={c.id}
+                    bgGradient={bgGradient}
                     choiceList={c}
                     choiceLists={choiceLists}
                     setChoiceLists={setChoiceLists}
