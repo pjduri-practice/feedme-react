@@ -12,6 +12,9 @@ import {
     Form,
     Input
 } from 'reactstrap'
+import DeleteButton from "../../../components/DeleteButton"
+import ClickToEdit from "../../../components/ClickToEdit"
+import IGForm from "../../../components/IGForm"
 
 export default function ChoiceList({
     bgGradient,
@@ -23,9 +26,8 @@ export default function ChoiceList({
 
     const { id } = choiceList
     const bsCardTitleClasses =
-        'container border border-dark text-black bg-light' +
-        ' bg-opacity-50 rounded-pill shadow-lg'
-    const bsDelButtonClasses = 'btn btn-sm mt-3 bg-transparent text-black'
+        'container text-black bg-transparent rounded-pill'
+    // const bsDelButtonClasses = 'btn btn-sm mt-3 bg-transparent text-black'
     const bsCardTextClasses =
         'bg-dark border border-dark bg-opacity-50 rounded shadow-lg pt-2 pb-2 ps-1 pe-1'
 
@@ -40,6 +42,7 @@ export default function ChoiceList({
     const getRandomIndex = () => Math.floor(Math.random() * options.length)
     const getRandomOption = () => { setRandomOption(options[getRandomIndex()]) }
     const clearRandomOption = () => { setRandomOption(null) }
+    const handleChange = e => { setListName(e.target.value) }
 
     const deleteChoiceList = () => {
         const updatedChoiceLists = choiceLists.filter(c => c.id !== id)
@@ -50,6 +53,7 @@ export default function ChoiceList({
 
     const handleSubmit = e => {
         e.preventDefault()
+        choiceList.name = listName
         setEditingListName(false)
     }
 
@@ -61,26 +65,28 @@ export default function ChoiceList({
                     backgroundImage: bgGradient
                 }}>
                 <CardBody>
-                    <CardTitle tag='h5'
-                        onClick={() => setEditingListName(true)}
-                        className={bsCardTitleClasses}
-                        style={{ backgroundImage: bgGradient }}>
+                    <CardTitle>
                         {!editingListName ?
                             <>
-                                {listName}
-                                <span>
-                                    <p onClick={deleteChoiceList}
-                                        className={bsDelButtonClasses}>
-                                        DEL
-                                    </p>
-                                </span>
+                                <div>
+                                    <ClickToEdit bgGradient={bgGradient}
+                                        textSize={32}
+                                        displayText={choiceList.name}
+                                        handleEditClick={() => setEditingListName(true)} />
+                                </div>
+                                <div>
+                                    <DeleteButton bgGradient={bgGradient}
+                                        handleClick={deleteChoiceList} />
+                                </div>
                             </> :
-                            <Form onSubmit={handleSubmit} onBlur={() => { setEditingListName(false) }}>
-                                <Input autoFocus
-                                    className='container-fluid bg-light bg-opacity-50'
-                                    value={listName}
-                                    onChange={(e) => { setListName(e.target.value) }} />
-                            </Form>
+                            <IGForm bgGradient={bgGradient}
+                            handleSubmit={handleSubmit}
+                            inputText={listName}
+                            handleBlur={handleChange}
+                            handleChange={handleChange}
+                            leftBtnTxt=''
+                            rtBtn1Txt='Done'
+                            rtBtn2Txt='' />
                         }
 
                         {/* {unsavedChanges &&

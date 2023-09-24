@@ -3,7 +3,7 @@
 
 export default function DeleteButton({ bgGradient, handleClick }) {
     return (
-        <span className='btn btn-outline-danger rounded p-1 text-danger shadow'
+        <div className='btn btn-outline-danger rounded p-1 text-danger shadow'
             onClick={handleClick}
             style={{
                 fontSize: 9,
@@ -14,6 +14,6 @@ export default function DeleteButton({ bgGradient, handleClick }) {
                 backgroundImage: bgGradient
             }}>
             DEL
-        </span>
+        </div>
     )
 }

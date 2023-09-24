@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import IGForm from '../../../components/IGForm'
 import DeleteButton from '../../../components/DeleteButton'
+import ClickToEdit from '../../../components/ClickToEdit'
 
 export function Option({
     option,
@@ -36,14 +37,10 @@ export function Option({
                         {options.length > 2 && <DeleteButton 
                             handleClick={deleteOption}
                             bgGradient={bgGradient} />}
-                        <span onClick={handleClickOption} 
-                            className='text-black pt-1 pb-1 ps-2 pe-2 fw-bold   rounded-pill shadow bg-light bg-opacity-75'
-                            style={{
-                                fontSize: 16,
-                                backgroundImage: bgGradient
-                            }}>
-                            {option.name}
-                        </span>
+                        <ClickToEdit bgGradient={bgGradient}
+                            textSize={16}
+                            displayText={option.name}
+                            handleEditClick={handleClickOption} />
                     </div>
                 </li> :
                 <li className="bg-transparent text-secondary rounded"
