@@ -18,7 +18,6 @@ export default function ({
     return (
         <>
             <Form onSubmit={handleSubmit}
-                style={{marginTop: -15}}
                 className='shadow'>
                 <InputGroup>
                     {leftBtnTxt && <InputGroupText
@@ -39,6 +38,7 @@ export default function ({
                         onChange={handleChange} />
                     <InputGroupText
                         className='text-black fw-bold bg-light bg-opacity-25 border-dark'
+                        onClick={handleSubmit}
                         style={{
                             fontSize: 12,
                             height: 30,

@@ -20,8 +20,8 @@ export function AddOption({
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        if (addInput === '') return
-        const newOption = addOption(addInput)
+        if (!addInput.trim()) return
+        const newOption = addOption(addInput.trim())
         const updatedOptions = [...options, newOption]
         setOptions(updatedOptions)
         setAddInput('')
@@ -41,28 +41,11 @@ export function AddOption({
             <IGForm bgGradient={bgGradient}
                 handleSubmit={handleSubmit}
                 inputText={addInput}
-                handleBlur={handleSubmit}
+                handleBlur={handleInputChange}
                 handleChange={handleInputChange}
                 leftBtnTxt=''
                 rtBtn1Txt='Add'
                 rtBtn2Txt='' />
-            {/* <Form onSubmit={handleSubmit} className='container-fluid'>
-                <InputGroup>
-                    <Input className='bg-light bg-opacity-75 border-dark mb-2'
-                        style={{ height: 30, fontSize: 18 }}
-                        label='Add Option'
-                        type='text'
-                        value={addInput}
-                        onChange={handleInputChange}
-                    />
-                    <InputGroupText
-                        className='p-1 text-black bg-secondary bg-opacity-25 border-dark'
-                        onClick={handleSubmit}
-                        style={{fontSize: 18,  height: 30, backgroundImage: bgGradient}}>
-                        Add
-                    </InputGroupText>
-                    </InputGroup>
-            </Form> */}
         </>
     )
 }

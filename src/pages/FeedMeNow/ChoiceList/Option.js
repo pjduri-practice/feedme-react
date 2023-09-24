@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import IGForm from '../../../components/IGForm'
+import DeleteButton from '../../../components/DeleteButton'
 
 export function Option({
     option,
@@ -15,7 +16,8 @@ export function Option({
         setOptions(updatedOptions)
     }
 
-    const handleChange = (e) => { setOptionName(e.target.value) }
+    const handleChange = e => { setOptionName(e.target.value) }
+    const handleClickOption = () => setEditingOption(true)
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -26,31 +28,21 @@ export function Option({
     return (
         <div style={{ width: 180, height: 40 }}>
             {!editingOption ?
-                <li
-                    className='text-black text-start text-nowrap'
-                    onClick={() => setEditingOption(true)}>
+                <li className='text-black text-start text-nowrap'>
                     <div className='container-fluid'
                         style={{
                             width: 300
                         }}>
-                        {options.length > 2 && <span className='btn btn-outline-danger rounded p-1 text-danger shadow'
-                            onClick={deleteOption}
-                            style={{
-                                fontSize: 9,
-                                padding: 3,
-                                marginTop: 3,
-                                marginLeft: -15,
-                                marginRight:5,
-                                backgroundImage: bgGradient
-                            }}>
-                            DEL
-                        </span>}
-                        <span className='text-black pt-1 pb-1 ps-2 pe-2 fw-bold rounded-pill shadow bg-light bg-opacity-75'
+                        {options.length > 2 && <DeleteButton 
+                            handleClick={deleteOption}
+                            bgGradient={bgGradient} />}
+                        <span onClick={handleClickOption} 
+                            className='text-black pt-1 pb-1 ps-2 pe-2 fw-bold   rounded-pill shadow bg-light bg-opacity-75'
                             style={{
                                 fontSize: 16,
                                 backgroundImage: bgGradient
                             }}>
-                            {optionName}
+                            {option.name}
                         </span>
                     </div>
                 </li> :

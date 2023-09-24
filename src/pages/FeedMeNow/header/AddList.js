@@ -24,11 +24,8 @@ export function AddList({
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        if (addListInput === '') {
-            alert('Please give your new list a name')
-            return
-        }
-        const newList = addChoiceList(addListInput)
+        if (!addListInput.trim()) return
+        const newList = addChoiceList(addListInput.trim())
         const updatedChoiceLists = [...choiceLists, newList]
         setChoiceLists(updatedChoiceLists)
         setAddListInput('')
