@@ -17,7 +17,9 @@ export default function ({
 
     return (
         <>
-            <Form onSubmit={handleSubmit}>
+            <Form onSubmit={handleSubmit}
+                style={{marginTop: -15}}
+                className='shadow'>
                 <InputGroup>
                     {leftBtnTxt && <InputGroupText
                         className='text-black bg-light bg-opacity-25 border-dark'
@@ -30,6 +32,7 @@ export default function ({
                     </InputGroupText>}
                     <Input autoFocus
                         type='text'
+                        className='bg-light bg-opacity-75 border-dark'
                         style={{ height: 30, fontSize: 18 }}
                         value={inputText}
                         onBlur={handleBlur}

@@ -45,7 +45,7 @@ export function Option({
                             }}>
                             DEL
                         </span>}
-                        <span className='text-black pt-1 pb-1 ps-2 pe-5 fw-bold rounded-pill shadow bg-light bg-opacity-75'
+                        <span className='text-black pt-1 pb-1 ps-2 pe-2 fw-bold rounded-pill shadow bg-light bg-opacity-75'
                             style={{
                                 fontSize: 16,
                                 backgroundImage: bgGradient

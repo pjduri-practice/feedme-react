@@ -1,5 +1,6 @@
 import { Form, Input, InputGroup, InputGroupText } from 'reactstrap'
 import { useState } from 'react'
+import IGForm from '../../../components/IGForm'
 
 export function AddOption({
     bgGradient,
@@ -37,7 +38,15 @@ export function AddOption({
 
     return (
         <>
-            <Form onSubmit={handleSubmit} className='container-fluid'>
+            <IGForm bgGradient={bgGradient}
+                handleSubmit={handleSubmit}
+                inputText={addInput}
+                handleBlur={handleSubmit}
+                handleChange={handleInputChange}
+                leftBtnTxt=''
+                rtBtn1Txt='Add'
+                rtBtn2Txt='' />
+            {/* <Form onSubmit={handleSubmit} className='container-fluid'>
                 <InputGroup>
                     <Input className='bg-light bg-opacity-75 border-dark mb-2'
                         style={{ height: 30, fontSize: 18 }}
@@ -53,7 +62,7 @@ export function AddOption({
                         Add
                     </InputGroupText>
                     </InputGroup>
-            </Form>
+            </Form> */}
         </>
     )
 }

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Dropdown, DropdownMenu, DropdownToggle, Form, InputGroup, Input, InputGroupText } from 'reactstrap'
+import IGForm from '../../../components/IGForm'
 
 export function AddList({ 
     layoutId, 
@@ -43,9 +44,17 @@ export function AddList({
             style={{ backgroundImage: bgGradient}}>
                 Add List
             </DropdownToggle>
-            <DropdownMenu className='bg-dark shadow p-2 bg-opacity-25'
+            <DropdownMenu className='bg-secondary shadow pt-3 ps-1 pe-1 bg-opacity-50'
                  style={{ backgroundImage: bgGradient }}>
-                <Form onSubmit={handleSubmit}>
+                    <IGForm bgGradient={bgGradient}
+                        handleSubmit={handleSubmit}
+                        inputText={addListInput}
+                        handleBlur={()=>{return}}
+                        handleChange={e => {setAddListInput(e.target.value)}}
+                        leftBtnTxt=''
+                        rtBtn1Txt='Add'
+                        rtBtn2Txt='' />
+                {/* <Form onSubmit={handleSubmit}>
                     <InputGroup className='shadow'>
                         <Input type='text'
                         style={{ height: 30 }}
@@ -64,7 +73,7 @@ export function AddList({
                             Add
                         </InputGroupText>
                     </InputGroup>
-                </Form>
+                </Form> */}
             </DropdownMenu>
         </Dropdown>
     )

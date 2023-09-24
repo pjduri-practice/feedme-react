@@ -27,7 +27,7 @@ export default function ChoiceList({
         ' bg-opacity-50 rounded-pill shadow-lg'
     const bsDelButtonClasses = 'btn btn-sm mt-3 bg-transparent text-black'
     const bsCardTextClasses =
-        'bg-dark border border-dark bg-opacity-50 rounded shadow-lg p-1'
+        'bg-dark border border-dark bg-opacity-50 rounded shadow-lg pt-2 pb-2 ps-1 pe-1'
 
     const [randomOption, setRandomOption] = useState(null)
     const [options, setOptions] =
@@ -94,7 +94,7 @@ export default function ChoiceList({
                         style={{ backgroundImage: bgGradient }}>
                         <List type='unstyled'
                             className='overflow-auto'
-                            style={{ height: 130 }} >
+                            style={{ height: 160 }} >
                             {options.map((o) =>
                                 <Option key={o.id}
                                     option={o}
