@@ -10,7 +10,7 @@ import {
 } from 'reactstrap'
 import AuthDropdown from './AuthDropdown'
 
-export default function NavBar({bgGradient, ...args }) {
+export default function NavBar({bsBtnClasses, bgGradient, ...args }) {
     const bsNavbarClasses =
         'navi fixed-top navbar-expand shadow-lg bg-dark bg-opacity-75 fw-light'
     const bsNavBtnClasses = 
@@ -37,13 +37,13 @@ export default function NavBar({bgGradient, ...args }) {
                 </NavbarBrand>
                 <Nav className="me-auto" navbar>
                     <NavLink href='/feedmenow'
-                        className={bsNavBtnClasses}
+                        className={bsBtnClasses}
                         style={navBtnStyle}>
                         FeedMe Now
                     </NavLink>
                     <NavItem>
                         <NavLink href="/feedmelater" 
-                        className={bsNavBtnClasses}
+                        className={bsBtnClasses}
                         style={navBtnStyle}>
                             FeedMe Later
                         </NavLink>
@@ -51,7 +51,7 @@ export default function NavBar({bgGradient, ...args }) {
 
                 </Nav>
                 <NavbarText className='text-black fw-bold'>Welcome!</NavbarText>
-                <AuthDropdown bsNavBtnClasses={bsNavBtnClasses}
+                <AuthDropdown bsNavBtnClasses={bsBtnClasses}
                     navBtnStyle={navBtnStyle} />
             </Navbar>
         </>

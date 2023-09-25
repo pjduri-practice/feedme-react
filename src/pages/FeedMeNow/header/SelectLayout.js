@@ -58,7 +58,9 @@ export function SelectLayout({
     }
 
     return (
-        <Dropdown className='p-2 m-2'
+        <>
+        <Dropdown id='select-layout'
+            className='p-2 m-2'
             isOpen={dropdownOpen}
             toggle={toggle}>
             <DropdownToggle nav caret
@@ -95,25 +97,8 @@ export function SelectLayout({
                     handleChange={handleChange}
                     leftBtnTxt=''
                     rtBtn1Txt='Add' />
-
-                {/* <Form onSubmit={handleAddLayout}>
-                    <InputGroup className='p-1'>
-                        <Input type='text'
-                            style={{ height: 30 }}
-                            className={bsLayoutInputClasses}
-                            value={layoutInput}
-                            placeholder='add'
-                            onChange={(e) => setLayoutInput(e.target.value)} />
-                        <InputGroupText for='newOption'
-                            className='text-black fw-bold bg-dark 
-                                bg-opacity-25 border-dark'
-                            onClick={handleAddLayout}
-                            style={{ fontSize: 18, height: 30 }}>
-                            Add
-                        </InputGroupText>
-                    </InputGroup>
-                </Form> */}
             </DropdownMenu>
         </Dropdown>
+        </>
     )
 }

@@ -47,6 +47,7 @@ export default function ({
                         {rtBtn1Txt}
                     </InputGroupText>
                     {rtBtn2Txt && <InputGroupText
+                        // onClick={clickBtn2}
                         className='text-black bg-light bg-opacity-25 border-dark'
                         style={{
                             fontSize: 12,

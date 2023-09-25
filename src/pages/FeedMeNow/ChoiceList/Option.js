@@ -4,6 +4,7 @@ import DeleteButton from '../../../components/DeleteButton'
 import ClickToEdit from '../../../components/ClickToEdit'
 
 export function Option({
+    bsBtnClasses,
     option,
     options,
     setOptions,
@@ -37,7 +38,8 @@ export function Option({
                         {options.length > 2 && <DeleteButton 
                             handleClick={deleteOption}
                             bgGradient={bgGradient} />}
-                        <ClickToEdit bgGradient={bgGradient}
+                        <ClickToEdit bsBtnClasses={bsBtnClasses}
+                            bgGradient={bgGradient}
                             textSize={16}
                             displayText={option.name}
                             handleEditClick={handleClickOption} />

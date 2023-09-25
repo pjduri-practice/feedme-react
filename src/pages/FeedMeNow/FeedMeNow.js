@@ -39,6 +39,7 @@ export default function FeedMeNow({ bgGradient, bsBtnClasses }) {
 
             <div className='d-flex flex-row container-fluid' style={{ marginTop: 30 }}>
                 {choiceLists.map(c => <ChoiceList key={c.id}
+                    bsBtnClasses={bsBtnClasses}
                     bgGradient={bgGradient}
                     choiceList={c}
                     choiceLists={choiceLists}

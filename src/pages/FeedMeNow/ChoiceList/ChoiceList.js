@@ -17,6 +17,7 @@ import ClickToEdit from "../../../components/ClickToEdit"
 import IGForm from "../../../components/IGForm"
 
 export default function ChoiceList({
+    bsBtnClasses,
     bgGradient,
     choiceLists,
     setChoiceLists,
@@ -51,6 +52,11 @@ export default function ChoiceList({
         setChoiceLists(updatedChoiceLists)
     }
 
+    const handleBlur = e => {
+        handleChange(e)
+        setEditingListName(false)
+    }
+
     const handleSubmit = e => {
         e.preventDefault()
         choiceList.name = listName
@@ -68,8 +74,9 @@ export default function ChoiceList({
                     <CardTitle>
                         {!editingListName ?
                             <>
-                                <div>
-                                    <ClickToEdit bgGradient={bgGradient}
+                                <div className='d-flex justify-content-center'>
+                                    <ClickToEdit bsBtnClasses={bsBtnClasses}
+                                        bgGradient={bgGradient}
                                         textSize={32}
                                         displayText={choiceList.name}
                                         handleEditClick={() => setEditingListName(true)} />
@@ -82,7 +89,7 @@ export default function ChoiceList({
                             <IGForm bgGradient={bgGradient}
                             handleSubmit={handleSubmit}
                             inputText={listName}
-                            handleBlur={handleChange}
+                            handleBlur={handleBlur}
                             handleChange={handleChange}
                             leftBtnTxt=''
                             rtBtn1Txt='Done'
@@ -103,6 +110,7 @@ export default function ChoiceList({
                             style={{ height: 160 }} >
                             {options.map((o) =>
                                 <Option key={o.id}
+                                    bsBtnClasses={bsBtnClasses}
                                     option={o}
                                     setOptions={setOptions}
                                     options={options}
@@ -121,7 +129,7 @@ export default function ChoiceList({
                         />
                     </CardText>
                     <Button onClick={getRandomOption}
-                        className='fs-6 text-black bg-light bg-opacity-25 border-dark rounded-pill'
+                        className={bsBtnClasses}
                         style={{ backgroundImage: bgGradient }}>
                         FeedMe Something!
                     </Button>

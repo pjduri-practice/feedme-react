@@ -14,7 +14,7 @@ export function Banner({
     setChoiceLists,
     nextId,
     setNextId }) {
-    const mainClasses = 'container text-black bg-transparent pt-4 mt-5'
+    const mainClasses = 'container text-black bg-transparent pt-5 mt-5'
     const dropdownClasses = 'd-flex flex-row justify-content-center'
     const bsTitleClasses = 'animate-character fw-bolder fs-1'
 

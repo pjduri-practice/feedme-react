@@ -7,9 +7,10 @@ import Home from './pages/Home'
 import { Parallax } from 'react-scroll-parallax'
 
 function App() {
-  const bgGradient = 'linear-gradient(to top left, rgba(56, 253, 253, 0.2), rgba(10, 87, 87, 0.9))'
+  const bgGradient = 
+    'linear-gradient(to top left, rgba(30, 240, 240, 0.5), rgba(10, 60, 60, 0.8))'
   const bsBtnClasses = 
-  'btn btn-outline-light border text-black' +
+  'btn btn-outline-info border text-black col text-nowrap overflow-hidden' +
   ' border-dark rounded-pill pt-1 pb-1 ps-2 pe-2 mt-1 mb-1' + 
   ' ms-2 me-2 bg-opacity-25 shadow '
 
