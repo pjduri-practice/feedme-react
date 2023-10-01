@@ -26,8 +26,8 @@ export default function ChoiceList({
     setNextId }) {
 
     const { id } = choiceList
-    const bsCardTitleClasses =
-        'container text-black bg-transparent rounded-pill'
+    // const bsCardTitleClasses =
+    //     'container text-black bg-transparent rounded-pill'
     // const bsDelButtonClasses = 'btn btn-sm mt-3 bg-transparent text-black'
     const bsCardTextClasses =
         'bg-dark border border-dark bg-opacity-50 rounded shadow-lg pt-2 pb-2 ps-1 pe-1'
@@ -41,7 +41,9 @@ export default function ChoiceList({
     // const [unsavedChanges, setUnsavedChanges] = useState(false)
 
     const getRandomIndex = () => Math.floor(Math.random() * options.length)
-    const getRandomOption = () => { setRandomOption(options[getRandomIndex()]) }
+    const getRandomOption = () => { 
+        options.length < 2 ? alert('You will need at least two options to pick a random one') : setRandomOption(options[getRandomIndex()]) 
+    }
     const clearRandomOption = () => { setRandomOption(null) }
     const handleChange = e => { setListName(e.target.value) }
 

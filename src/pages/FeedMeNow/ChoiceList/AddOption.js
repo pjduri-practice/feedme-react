@@ -1,4 +1,3 @@
-import { Form, Input, InputGroup, InputGroupText } from 'reactstrap'
 import { useState } from 'react'
 import IGForm from '../../../components/IGForm'
 
