@@ -15,56 +15,57 @@ import {
 import LoginForm from './LoginForm'
 import RegisterForm from './RegisterForm'
 
-export default function AuthNav() {
+export default function AuthNav({ bgGradient, bsNavBtnClasses, navBtnStyle }) {
 
-    const activeTab = 'active bg-secondary border-dark bg-opacity-50'
-    const inactiveTab = 'bg-secondary border-dark bg-opacity-50'
-    const [loginTabActive, setLoginTabActive] = useState(activeTab)
-    const [registerTabActive, setRegisterTabActive] = useState(inactiveTab)
+    const activeTab = 'active bg-secondary border-dark bg-opacity-25 text-info'
+    const inactiveTab = 'bg-dark border-dark bg-opacity-25 text-black'
     const [activeNavTab, setActiveNavTab] = useState('1')
 
-    const handleLoginTab = () => {
-        setLoginTabActive(activeTab)
-        setRegisterTabActive(inactiveTab)
-        setActiveNavTab('1')
-    }
-    
-    const handleRegisterTab = () => {
-        setLoginTabActive(activeTab)
-        setRegisterTabActive(inactiveTab)
-        setActiveNavTab('2')
-    }
-
     return (
-        <div className='bg-secondary bg-opacity-50'>
-            <Nav tabs className='bg-secondary border-dark bg-opacity-50'>
-                <NavItem className='bg-secondary bg-opacity-50'>
+        <div className='container bg-secondary bg-opacity-50'
+            style={{ backgroundImage: bgGradient }}>
+            <Nav tabs className='bg-secondary border-dark bg-opacity-25'
+                style={{ backgroundImage: bgGradient }}>
+                <NavItem className='bg-dark bg-opacity-50'
+                    style={{ backgroundImage: bgGradient }}
+                    onClick={() => {setActiveNavTab('1')}}>
                     <NavLink
-                        className={loginTabActive}
-                        onClick={handleLoginTab}
+                        className={activeNavTab === '1' ? activeTab : inactiveTab}
+                        
                     >
                         Login
                     </NavLink>
                 </NavItem>
-                <NavItem className='bg-secondary bg-opacity-50'>
+                <NavItem className='bg-secondary border-dark bg-opacity-25'
+                    style={{ backgroundImage: bgGradient }}
+                    onClick={() => {setActiveNavTab('2')}}>
                     <NavLink
-                        className= {registerTabActive}
-                        onClick={handleRegisterTab}
+                        className={activeNavTab === '2' ? activeTab : inactiveTab}
+                        
                     >
                         Register
                     </NavLink>
                 </NavItem>
             </Nav>
-            <TabContent className='bg-dark bg-opacity-50'  style={{height: 400, width: 400}} activeTab={activeNavTab}>
-                <TabPane tabId="1" className='bg-secondary bg-opacity-50'>
+            <TabContent className='container bg-dark bg-opacity-25'
+                style={{
+                    height: 350,
+                    width: 350,
+                    backgroundImage: bgGradient
+                }}
+                activeTab={activeNavTab}>
+                <TabPane tabId="1" className='bg-secondary bg-opacity-50'
+                    style={{ backgroundImage: bgGradient }}>
                     <Row>
                         <Col sm="12">
                             <LoginForm />
                         </Col>
                     </Row>
                 </TabPane>
-                <TabPane tabId="2" className='bg-secondary bg-opacity-50'>
-                    <RegisterForm />
+                <TabPane tabId="2" className='bg-dark bg-opacity-25 rounded overflow-auto'
+                    style={{ height: '99%' }}>
+                    <RegisterForm bsNavBtnClasses={bsNavBtnClasses}
+                        navBtnStyle={navBtnStyle} />
                 </TabPane>
             </TabContent>
         </div>

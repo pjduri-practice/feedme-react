@@ -52,7 +52,8 @@ export default function NavBar({bsBtnClasses, bgGradient, ...args }) {
                 </Nav>
                 <NavbarText className='text-black fw-bold'>Welcome!</NavbarText>
                 <AuthDropdown bsNavBtnClasses={bsBtnClasses}
-                    navBtnStyle={navBtnStyle} />
+                    navBtnStyle={navBtnStyle}
+                    bgGradient={bgGradient} />
             </Navbar>
         </>
     )

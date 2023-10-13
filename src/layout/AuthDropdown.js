@@ -11,7 +11,7 @@ import AuthNav from './AuthNav'
 import RegisterForm from './RegisterForm'
 import LoginForm from './LoginForm'
 
-export default function AuthDropdown({ bsNavBtnClasses, navBtnStyle }) {
+export default function AuthDropdown({ bgGradient, bsNavBtnClasses, navBtnStyle }) {
     const [dropdownOpen, setDropdownOpen] = useState(false)
     // const [hasAccount, setHasAccount] = useState(false)
     const toggle = () => setDropdownOpen(!dropdownOpen)
@@ -24,8 +24,11 @@ export default function AuthDropdown({ bsNavBtnClasses, navBtnStyle }) {
                 >
                 Login / Register
             </DropdownToggle>
-            <DropdownMenu className='bg-secondary border-dark'>
-                <AuthNav />
+            <DropdownMenu className='bg-dark bg-opacity-75 border-dark'
+                style={{backgroundImage: bgGradient}}>
+                <AuthNav bgGradient={bgGradient}
+                    bsNavBtnClasses={bsNavBtnClasses}
+                    navBtnStyle={navBtnStyle} />
             </DropdownMenu>
         </Dropdown>
 
