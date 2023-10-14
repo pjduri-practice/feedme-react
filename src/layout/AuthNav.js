@@ -28,20 +28,20 @@ export default function AuthNav({ bgGradient, bsNavBtnClasses, navBtnStyle }) {
                 style={{ backgroundImage: bgGradient }}>
                 <NavItem className='bg-dark bg-opacity-50'
                     style={{ backgroundImage: bgGradient }}
-                    onClick={() => {setActiveNavTab('1')}}>
+                    onClick={() => { setActiveNavTab('1') }}>
                     <NavLink
                         className={activeNavTab === '1' ? activeTab : inactiveTab}
-                        
+
                     >
                         Login
                     </NavLink>
                 </NavItem>
                 <NavItem className='bg-secondary border-dark bg-opacity-25'
                     style={{ backgroundImage: bgGradient }}
-                    onClick={() => {setActiveNavTab('2')}}>
+                    onClick={() => { setActiveNavTab('2') }}>
                     <NavLink
                         className={activeNavTab === '2' ? activeTab : inactiveTab}
-                        
+
                     >
                         Register
                     </NavLink>
@@ -58,7 +58,8 @@ export default function AuthNav({ bgGradient, bsNavBtnClasses, navBtnStyle }) {
                     style={{ backgroundImage: bgGradient }}>
                     <Row>
                         <Col sm="12">
-                            <LoginForm />
+                            <LoginForm bsNavBtnClasses={bsNavBtnClasses}
+                                navBtnStyle={navBtnStyle} />
                         </Col>
                     </Row>
                 </TabPane>
